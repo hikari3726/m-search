@@ -1,0 +1,60 @@
+.navbar {
+  height: 80px;
+  background-color: #C0C0C0;
+  
+  .navbar-white {
+    color: white;
+  }
+  
+  .navbar-left {
+    font-size: 40px;
+    line-height: 80px
+  }
+  
+  .navbar-right {
+    font-size: 18px;
+    line-height: 80px;
+   
+    li {
+      list-style: none;
+      display: inline-block;
+      padding: 0 20px;
+   }
+  } 
+}
+
+.main-container {
+  height: 400px;
+  background-color: #008080;
+  
+  .top-container {
+    text-align: center;
+     margin-top: 100px;
+  }
+  
+  .btn {
+    color: white;
+    font-size: 25px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.row-container {
+  padding-top: 100px;
+
+  .function-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .function-description {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
