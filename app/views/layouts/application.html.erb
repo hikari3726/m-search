@@ -13,12 +13,12 @@
     <nav class="navbar">
       <div class="container" >
         <div class="navbar-left">
-          <%= link_to "M-Search", "#", class: 'navbar-white' %>
+          <%= link_to "M-Search", root_path, class: 'navbar-white' %>
         </div>
         <div class="navbar-right">
           <ul>
             <li>
-              <%= link_to "サインイン", "#", class: 'navbar-white' %>
+              <%= link_to "サインイン", new_user_path, class: 'navbar-white' %>
             </li>
             <li>
               <%= link_to "ログイン", "#", class: 'navbar-white' %>
@@ -28,6 +28,16 @@
       </div>
     </nav>
     
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+    
     <%= yield %>
+    
+    <script>
+      $(function(){
+        $(".alert").fadeOut(5000);
+      });
+    </script>
   </body>
 </html>
