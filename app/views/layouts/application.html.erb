@@ -17,12 +17,24 @@
         </div>
         <div class="navbar-right">
           <ul>
-            <li>
-              <%= link_to "サインイン", new_user_path, class: 'navbar-white' %>
-            </li>
-            <li>
-              <%= link_to "ログイン", "#", class: 'navbar-white' %>
-            </li>
+            <% if logged_in? %>
+              <li>
+                <%= link_to "マイページ", user_path(id: current_user.id), class: 'navbar-white' %>
+              </li>
+              <li>
+                <%= link_to "コミュニティ", communities_path, class: 'navbar-white' %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", logout_path, class: 'navbar-white', method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "サインイン", new_user_path, class: 'navbar-white' %>
+              </li>
+              <li>
+                <%= link_to "ログイン", login_path, class: 'navbar-white' %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>

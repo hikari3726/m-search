@@ -37,9 +37,19 @@
     align-items: center;
 }
 
+.background-color {
+  background-color: #008080;
+}
+
+.text {
+  height: 80px;
+  background-color: #FFFFFF;
+}
+
+
+/*ログイン、サインイン*/
 .main-container {
   height: 400px;
-  background-color: #008080;
   
   .top-container {
     text-align: center;
@@ -58,16 +68,74 @@
 }
 
 .new-container {
-  background-color: #008080;
   height: 500px;
-  
-  .text {
-    height: 80px;
-    background-color: #FFFFFF;
-  }
   
   .new-form {
     width: 50%;
     margin: 40px auto;
+  }
+}
+
+/*マイページ*/
+.self-introduction {
+  
+  .follow {
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+  }
+  
+  .image {
+    width: 70%;
+    height: auto;
+    padding-top: 40px;
+  }
+  
+  .item-container {
+    padding: 0px 80px;
+  }
+  
+  .one-row {
+    display: inline-block;
+  }
+  
+  .item-border {
+    border-top: solid 1px #c0c0c0;
+    padding: 10px 0px;
+  }
+  
+  .font {
+    font-size: 18px;
+  }
+  
+  .edit-btn {
+    color: #444444;
+  }
+}
+
+/*マイページ編集*/
+.user-edit-wrapper {
+  .form-container {
+    width: 50%;
+    margin: 40px auto;
+  }
+  
+  .edit-container {
+    height: 800px;
+  }
+}
+
+/*コミュニティ一覧*/
+.community-index-wrapper {
+  .index-image {
+    width: 20%;
+    height: auto;
+    margin: 20px 40px;
+  }
+  
+  .
+  
+  .search-container {
+    padding-top: 100px;
   }
 }
