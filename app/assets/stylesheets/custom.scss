@@ -77,8 +77,13 @@
 }
 
 /*マイページ*/
-.self-introduction {
+.show-container {
+  height: 1000px;
   
+  .self-introduction {
+    margin: 0 80px;  
+  }
+
   .follow {
     color: white;
     padding: 20px;
@@ -86,22 +91,25 @@
   }
   
   .image {
-    width: 70%;
+    width: 100%;
     height: auto;
     padding-top: 40px;
   }
   
   .item-container {
-    padding: 0px 80px;
   }
   
   .one-row {
-    display: inline-block;
+    display: flex;
   }
   
   .item-border {
     border-top: solid 1px #c0c0c0;
     padding: 10px 0px;
+  }
+  
+  .mini-font {
+    padding-right: 20px;
   }
   
   .font {
@@ -110,6 +118,10 @@
   
   .edit-btn {
     color: #444444;
+    position: relative;
+    top: -200px;
+    left: 350px;
+
   }
 }
 
@@ -127,15 +139,39 @@
 
 /*コミュニティ一覧*/
 .community-index-wrapper {
+  
+  .index {
+    border-bottom: solid 1px #c0c0c0;
+    margin: 0 40px;
+    padding: 30px 0px;
+  }
+ 
   .index-image {
-    width: 20%;
+    width: 25%;
     height: auto;
-    margin: 20px 40px;
+    padding-right: 30px;
   }
   
-  .
+  .title-description {
+    display: inline-block;
+    width: 60%;
+    word-break: break-all;
+  }
+  
+  .index-title {
+    font-size: 18px;
+  }
+  
+  .join-btn {
+    margin-left: 20px;
+  }
   
   .search-container {
     padding-top: 100px;
   }
+  
+  .new-btn {
+    margin-top: 20px;
+  }
+  
 }

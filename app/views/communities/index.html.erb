@@ -1,6 +1,7 @@
 <div class="community-index-wrapper">
   <div class="container">
     <div class="row">
+     
       <div class="col-md-offset-2 col-md-8">
         <div class="index-container background-color">
           <h2 class="text center">コミュニティ一覧</h2>
@@ -9,13 +10,14 @@
               <%= image_tag community.image.url, class: 'index-image' %>
               <div class="title-description">
                 <p class="index-title"><%= community.title %></p>
-                <p class="index-description"><%= community.description %></p>
+                <p class="member-count">メンバー人数</p>
               </div>
               <%= link_to "参加", "#", class: 'join-btn btn btn-default' %>
             </div>
           <% end %>
         </div>
       </div>
+     
       <div class="col-md-2">
         <div class="search-container">
           <%= form_tag(community_search_path, :method => 'get') do %>
@@ -26,7 +28,11 @@
             <%= submit_tag '検索', :name => nil %>
           </div>
           <% end %>
+        </div>
+        <div class="community-new">
+          <%= link_to "コミュニティ作成", new_community_path, class: 'new-btn btn btn-default' %>
+        </div>
       </div>
-    </div>
+    
   </div>
 </div>

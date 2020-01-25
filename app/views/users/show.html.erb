@@ -4,35 +4,41 @@
       <div class="col-md-offset-3 col-md-6">
         <div class="show-container background-color">
           <h2 class="text center"><%= @user.name %></h2>
+          
           <div class="self-introduction">
             <div class="item center">
               <%= image_tag @user.image.url, class: 'image' %>
             </div>
+            
             <div class="follow-container center">
               <%= link_to "フォロー", "#", class: 'follow btn-white' %>
               <%= link_to "フォロワー", "#", class: 'follow btn-white' %>
             </div>
+              
             <div class='item-container'>
               <div class="one-row">
-              <div class="item">
-                <p class="birthplace mini-font"><%= @user.birthplace %></p>
+                <div class="item">
+                  <p class="birthplace mini-font"><%= @user.birthplace %></p>
+                </div>
+                <div class="item">
+                  <p class="age mini-font"><%= @user.age %>歳</p>
+                </div>
               </div>
-              <div class="item">
-                <p class="age mini-font"><%= @user.age %>歳</p>
-              </div>
-              </div>
+              
               <div class="item item-border">
                 <p class="description font">自己紹介</p>
                 <%= @user.description %>
               </div>
+              
               <div class="item item-border">
                 <p class="artist font">好きなアーティスト</p>
                 <%= @user.artist %>
               </div>
             </div>
+            
             <%= link_to "編集", edit_user_path(current_user.id), class: 'btn-white edit-btn' %>
           </div>
-     
+          
         </div>
       </div>
     </div>
