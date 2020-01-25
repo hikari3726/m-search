@@ -9,6 +9,7 @@ class User < ApplicationRecord
   
   has_secure_password
   
-  has_many :communities
+  has_many :communities, dependent: :destroy
+  has_many :posts, dependent: :destroy
   
 end

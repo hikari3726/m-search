@@ -1,0 +1,29 @@
+<div class="community-show-wrapper">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-offset-3 col-md-6">
+        <div class="show-container background-color">
+          <h2 class="text center"><%= @community.title %></h2>
+        </div>
+        <div class="content-container">
+          
+        </div>
+      </div>
+     
+      <div class="col-md-3">
+        <div class="show-container-right">
+          <%= image_tag @community.image.url, class: 'show-image' %>
+          <div class="community-description">
+            <p class="owner center">管理者：<%= @community.user.name %></p>
+            <p class="description title">説明</p>
+            <p class="description"><%= @community.description %></p>
+          </div>
+          <div class="join-member">
+            <p class="member title">参加者一覧</p>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</div>

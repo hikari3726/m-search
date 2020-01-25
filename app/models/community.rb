@@ -5,6 +5,7 @@ class Community < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   belongs_to :user
+  has_many :posts, dependent: :destroy
   
   def self.search(search)
     if search

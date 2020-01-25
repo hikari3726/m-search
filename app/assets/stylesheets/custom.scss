@@ -77,11 +77,15 @@
 }
 
 /*マイページ*/
-.show-container {
-  height: 1000px;
+.user-show-wrapper {
+  
+  .show-container {
+    height: 800px;
+  }
   
   .self-introduction {
     margin: 0 80px;  
+    padding-bottom: 30px;
   }
 
   .follow {
@@ -91,12 +95,9 @@
   }
   
   .image {
-    width: 100%;
-    height: auto;
+    width: 70%;
+    height: 250px;
     padding-top: 40px;
-  }
-  
-  .item-container {
   }
   
   .one-row {
@@ -174,4 +175,30 @@
     margin-top: 20px;
   }
   
+}
+
+/*コミュニティ投稿*/
+.show-container {
+    height: 650px;
+  }
+
+.show-container-right {
+  
+  .show-image {
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+  }
+  
+  .description {
+    word-break: break-all;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .join-member {
+    margin-top: 20px;
+  }
 }
