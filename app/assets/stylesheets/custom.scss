@@ -179,7 +179,23 @@
 
 /*コミュニティ投稿*/
 .show-container {
-    height: 650px;
+    height: 550px;
+    
+    .content-container {
+      margin: 40px;
+      width: 480px;
+      height: 400px;
+      overflow: scroll;
+    }
+    
+    .content {
+      font-size: 20px;
+    }
+    
+    .user-name {
+      margin-bottom: 0px;
+    }
+    
   }
 
 .show-container-right {

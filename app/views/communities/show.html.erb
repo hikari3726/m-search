@@ -5,9 +5,30 @@
       <div class="col-md-offset-3 col-md-6">
         <div class="show-container background-color">
           <h2 class="text center"><%= @community.title %></h2>
-        </div>
-        <div class="content-container">
+          <div class="content-container">
+            <% @community.posts. each do |post| %>
+              <div class="post-screen">
+                <p class="user-name"><%= post.user.name %>    <%= post.updated_at %></p>
+                <p class="content"><%= post.content %></p>
+              </div>
+            <% end %>
+            
+          </div>
           
+        </div>
+        <div class="post-container">
+          <%= form_for @post,:url => {controller: "posts", action: "create" } do |f| %>
+            <div class="form-group"> 
+              <%= f.text_area :content, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+            </div>
+            <div class="form-group">
+               <%= f.hidden_field :community_id, :value => @community.id %>
+            </div>
+            <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          <% end %>
         </div>
       </div>
      

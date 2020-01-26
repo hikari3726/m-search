@@ -23,8 +23,11 @@ class CommunitiesController < ApplicationController
   
   def show
     @community = Community.find(params[:id])
-
+    @communities = Community.all
+    @post = Post.new
   end
+  
+
   
   private
   def community_params
