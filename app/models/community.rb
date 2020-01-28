@@ -6,6 +6,8 @@ class Community < ApplicationRecord
   
   belongs_to :user
   has_many :posts, dependent: :destroy
+  has_many :join_communities
+  has_many :join_community_users, through: :join_communities, source: 'user'
   
   def self.search(search)
     if search

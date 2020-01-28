@@ -27,6 +27,26 @@ class CommunitiesController < ApplicationController
     @post = Post.new
   end
   
+  def destroy
+    @community = Community.find(params[:id])
+    @community.destroy
+    redirect_to communities_path, success: 'コミュニティを削除しました'
+  end
+  
+  def edit
+    @community = Community.find(params[:id])
+  end
+  
+  def update
+    @community = Community.find(params[:id])
+      if @community.update(community_params)
+        redirect_to community_path(params[:id]), success: '変更しました'
+      else
+        flash.now[:danger] = '変更失敗しました'
+        render :edit
+      end
+  end
+  
 
   
   private

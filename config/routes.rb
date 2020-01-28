@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :communities
   resources :posts
   
+  post '/join_communities', to: 'join_communities#create'
+  delete '/join_community', to: 'join_communities#destroy'
   get 'community/search'
   
   get '/login', to: 'sessions#new'

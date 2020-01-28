@@ -37,8 +37,9 @@
     align-items: center;
 }
 
-.background-color {
-  background-color: #008080;
+
+.background-color-green {
+  background-color: #009966;
 }
 
 .text {
@@ -89,7 +90,7 @@
   }
 
   .follow {
-    color: white;
+    color: black;
     padding: 20px;
     font-size: 18px;
   }
@@ -121,7 +122,7 @@
     color: #444444;
     position: relative;
     top: -200px;
-    left: 350px;
+    left: 340px;
 
   }
 }
@@ -175,35 +176,59 @@
     margin-top: 20px;
   }
   
+  .search-btn {
+    margin-left: 80%;
+  }
+  
 }
 
 /*コミュニティ投稿*/
-.show-container {
-    height: 550px;
-    
-    .content-container {
-      margin: 40px;
-      width: 480px;
-      height: 400px;
-      overflow: scroll;
-    }
-    
-    .content {
-      font-size: 20px;
-    }
-    
-    .user-name {
-      margin-bottom: 0px;
-    }
-    
+.community-show-wrapper {
+  
+ .post-container {
+   margin: 10px;
+   padding: 10px;
+ }
+ 
+ .post-btn {
+   width: 30% !important;
+   margin-left: 70%;
+ }
+
+ .content-container {
+  margin: 10px;
+  padding: 10px;
+  height: 500px;
+  overflow: auto;
   }
+    
+  .content {
+    font-size: 20px;
+  }
+    
+  .user-name {
+    margin-bottom: 0px;
+  }
+}
 
 .show-container-right {
+  .community-description {
+    margin-top: 10px;
+  }
   
   .show-image {
     width: 100%;
     height: auto;
     margin-top: 100px;
+  }
+  
+  .join-btn {
+    margin-left: 80%;
+  }
+  
+  .owner-btn {
+    display: inline-block;
+    margin: 10px;
   }
   
   .description {

@@ -3,23 +3,12 @@
     <div class="row">
       
       <div class="col-md-offset-3 col-md-6">
-        <div class="show-container background-color">
+        <div class="show-container">
           <h2 class="text center"><%= @community.title %></h2>
-          <div class="content-container">
-            <% @community.posts. each do |post| %>
-              <div class="post-screen">
-                <p class="user-name"><%= post.user.name %>    <%= post.updated_at %></p>
-                <p class="content"><%= post.content %></p>
-              </div>
-            <% end %>
-            
-          </div>
-          
-        </div>
-        <div class="post-container">
-          <%= form_for @post,:url => {controller: "posts", action: "create" } do |f| %>
-            <div class="form-group"> 
-              <%= f.text_area :content, class: 'form-control' %>
+          <div class="post-container">
+            <%= form_for @post,:url => {controller: "posts", action: "create" } do |f| %>
+            <div class="form-group "> 
+              <%= f.text_area :content, class: 'form-control center' %>
             </div>
             <div class="form-group">
               <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -27,8 +16,19 @@
             <div class="form-group">
                <%= f.hidden_field :community_id, :value => @community.id %>
             </div>
-            <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
-          <% end %>
+              <%= f.submit '投稿', class: 'post-btn btn-black btn-default' %>
+            <% end %>
+          </div>
+          <div class="post">
+          <div class="content-container">
+            <% @community.posts. each do |post| %>
+              <div class="post-screen">
+                <p class="user-name"><%= post.user.name %>    <%= post.updated_at %></p>
+                <p class="content"><%= post.content %></p>
+              </div>
+            <% end %>
+            </div>
+          </div>
         </div>
       </div>
      
@@ -37,14 +37,30 @@
           <%= image_tag @community.image.url, class: 'show-image' %>
           <div class="community-description">
             <p class="owner center">管理者：<%= @community.user.name %></p>
+            <% if current_user.id == @community.user_id %>
+              <div class="owner center">
+                <%= link_to "編集", edit_community_path(@community.id), class: 'owner-btn btn btn-default' %>
+                <%= link_to "削除", community_path(@community.id), class: 'owner-btn btn btn-default', method: :delete %>
+              </div>
+            <% elsif !@community.join_community_users.include?(current_user) %>
+              <%= link_to "参加", join_communities_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-default', method: :post %>
+            <% else %>
+              <%= link_to "退会", join_community_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-default', method: :delete %>
+            <% end %>
             <p class="description title">説明</p>
             <p class="description"><%= @community.description %></p>
           </div>
           <div class="join-member">
-            <p class="member title">参加者一覧</p>
+            <p class="join title">参加者一覧</p>
+          </div>
+          <div class="member">
+            <% @community.join_communities. each do |community| %>
+              <p class="member-name"><%= community.user.name %></p>
+            <% end %>
           </div>
         </div>
       </div>
-    
+
+    </div>
   </div>
 </div>

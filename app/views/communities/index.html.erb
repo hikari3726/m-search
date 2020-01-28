@@ -12,7 +12,7 @@
                 <p class="index-title"><%= community.title %></p>
                 <p class="member-count">参加メンバー</p>
               </div>
-              <%= link_to "参加", community_path(community.id) ,class: 'new-btn btn btn-default' %>
+              <%= link_to "詳細", community_path(community.id) ,class: 'new-btn btn btn-default' %>
             </div>
           <% end %>
         </div>
@@ -22,10 +22,10 @@
         <div class="search-container">
           <%= form_tag(community_search_path, :method => 'get') do %>
           <div class="search-column">
-            <%= text_field_tag :search %>
+           <%= text_field_tag :search %>
           </div>
           <div class="search-btn">
-            <%= submit_tag '検索', :name => nil %>
+            <%= submit_tag '検索', :name => nil, class: 'search-btn btn btn-default' %>
           </div>
           <% end %>
         </div>
