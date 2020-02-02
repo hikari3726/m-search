@@ -11,24 +11,22 @@
             </div>
             
             <div class="follow-container center">
-              <%= link_to "フォロー", "#", class: 'follow-member font-black' %>
-              <%= link_to "フォロワー", "#", class: 'follow-member font-black' %>
+              <%= link_to "フォロー", { controller: 'users', action: 'follow_list', user_id: @user.id }, class: 'follow-member font-black', method: :get %>
+              <%= @user.follow_count %>
+              <%= link_to "フォロワー", { controller: 'users', action: 'follower_list', user_id: @user.id}, class: 'follow-member font-black', method: :get %>
+              <%= @user.followers_count %>
             </div>
             <div class="follow center">
               <% if current_user.id == @user.id %>
                 <%= link_to "編集", edit_user_path(current_user.id), class: 'edit-btn btn btn-default' %>
               <% else %>
-                <% if current_user.following?(@user) %>
-                  <%= form_for(current_user.active_relationships.build) do |f| %>
-                    <div><%= hidden_field_tag :following_id, @user.id %></div>
-                    <%= f.submit "フォロー", class: "btn btn-default" %>
-                  <% end %>
+                <% if current_user.following? @user %>
+                  <%= link_to "フォロー中", { controller: 'users', action: 'unfollow', user_id: @user.id }, class: 'follow-message btn btn-default', method: :put %>
                   <%= link_to "メッセージ", room_path(@user.id), class: 'follow-message btn btn-default' %>
                 <% else %>
-                  <%= form_for(current_user.active_relationships.find_by(following_id: @user.id), html: { method: :delete}) do |f| %>
-                    <%= f.submit "フォロー解除", class: "btn btn-default" %>
-                  <% end %>
-                  <%= link_to "メッセージ", "#", class: 'follow-message btn btn-default' %>
+                  <%= link_to "フォローする", { controller: 'users', action: 'follow', user_id: @user.id }, class: 'follow-message btn btn-default', method: :put %>
+                  <%= link_to "メッセージ", room_path(@user.id), class: 'follow-message btn btn-default' %>
+                <% end %>
               <% end %>
             </div>
  
@@ -69,4 +67,3 @@
     </div>
   </div>
 </div>
-

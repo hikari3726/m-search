@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
-  
- 
-  get 'follow/index'
   get 'sessions/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
-  resources :users
+  
+  resources :users 
   resources :communities
   resources :posts
   resources :rooms, :only => [:show, :create]
@@ -15,8 +13,11 @@ Rails.application.routes.draw do
   
   get 'community/search'
   
-  post '/follow_users', to: 'follow_users#create'
-  delete '/follow_users', to: 'follow_users#destroy'
+  put 'users/follow/:user_id' => 'users#follow'
+  put 'users/unfollow/:user_id' => 'users#unfollow'
+  
+  get 'users/follow_list/:user_id' => 'users#follow_list'
+  get 'users/follower_list/:user_id' => 'users#follower_list'
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
