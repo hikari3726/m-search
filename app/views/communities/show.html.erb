@@ -20,13 +20,18 @@
             <% end %>
           </div>
           <div class="post">
-          <div class="content-container">
-            <% @community.posts. each do |post| %>
-              <div class="post-screen">
-                <p class="user-name"><%= post.user.name %>    <%= post.updated_at %></p>
-                <p class="content"><%= post.content %></p>
-              </div>
-            <% end %>
+          　<div class="content-container">
+              <% @community.posts. each do |post| %>
+                <div class="post-screen bottom-border">
+                  <%= image_tag post.user.image.url, class: "user-image" %>
+                  <div class="user-content">
+                    <%= link_to user_path(:id => post.user_id), class: 'user-name font-black'  do %>
+                      <%= post.user.name %>
+                    <% end %>
+                    <p class="content new-line"><%= post.content %></p>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -48,14 +53,19 @@
               <%= link_to "退会", join_community_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-default', method: :delete %>
             <% end %>
             <p class="description title">説明</p>
-            <p class="description"><%= @community.description %></p>
+            <p class="description new-line"><%= @community.description %></p>
           </div>
           <div class="join-member">
-            <p class="join title">参加者一覧</p>
+            <%= link_to "参加者一覧", join_community_path(:community_id => params[:id]), class: 'btn btn-default' %>
           </div>
           <div class="member">
             <% @community.join_communities. each do |community| %>
-              <p class="member-name"><%= community.user.name %></p>
+              <div class ="mamber-info bottom-border">
+                <%= image_tag community.user.image.url, class: "join-user-image" %>
+                <%= link_to user_path(:id => community.user_id), class: 'user-name font-black'  do %>
+                  <%= community.user.name %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -64,3 +74,4 @@
     </div>
   </div>
 </div>
+

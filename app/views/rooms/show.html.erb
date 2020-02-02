@@ -1,0 +1,42 @@
+<div class="room-wrapper">
+  <div class="container">
+    <div class="row">
+     
+      <div class="col-md-offset-3 col-md-6">
+        <div class="room-container">
+          <h2 class="text center">メッセージ</h2>
+          <div class="post-container">
+            <%= form_for @room do |f| %>
+            <div class="form-group "> 
+              <%= f.text_area :content, class: 'form-control center' %>
+            </div>
+            <div class="form-group">
+              <%= f.hidden_field :sender_id, :value => current_user.id %>
+            </div>
+            <div class="form-group">
+              <%= f.hidden_field :user_id, :value => params[:id] %>
+            </div>
+              <%= f.submit '送信', class: 'post-btn btn-black btn-default' %>
+            <% end %>
+          </div>
+          <div class="post">
+          　<div class="content-container">
+              <% @rooms. each do |room| %>
+                <div class="post-screen bottom-border">
+                  <%= image_tag room.user.image.url, class: "user-image" %>
+                  <div class="user-content">
+                    <%= link_to user_path(:id => room.user_id), class: 'user-name font-black'  do %>
+                      <%= room.user.name %>
+                    <% end %>
+                    <p class="content new-line"><%= room.content %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>

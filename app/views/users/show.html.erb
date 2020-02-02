@@ -11,9 +11,27 @@
             </div>
             
             <div class="follow-container center">
-              <%= link_to "フォロー", "#", class: 'follow btn-white' %>
-              <%= link_to "フォロワー", "#", class: 'follow btn-white' %>
+              <%= link_to "フォロー", "#", class: 'follow-member font-black' %>
+              <%= link_to "フォロワー", "#", class: 'follow-member font-black' %>
             </div>
+            <div class="follow center">
+              <% if current_user.id == @user.id %>
+                <%= link_to "編集", edit_user_path(current_user.id), class: 'edit-btn btn btn-default' %>
+              <% else %>
+                <% if current_user.following?(@user) %>
+                  <%= form_for(current_user.active_relationships.build) do |f| %>
+                    <div><%= hidden_field_tag :following_id, @user.id %></div>
+                    <%= f.submit "フォロー", class: "btn btn-default" %>
+                  <% end %>
+                  <%= link_to "メッセージ", room_path(@user.id), class: 'follow-message btn btn-default' %>
+                <% else %>
+                  <%= form_for(current_user.active_relationships.find_by(following_id: @user.id), html: { method: :delete}) do |f| %>
+                    <%= f.submit "フォロー解除", class: "btn btn-default" %>
+                  <% end %>
+                  <%= link_to "メッセージ", "#", class: 'follow-message btn btn-default' %>
+              <% end %>
+            </div>
+ 
               
             <div class='item-container'>
               <div class="one-row">
@@ -34,11 +52,21 @@
                 <p class="artist font">好きなアーティスト</p>
                 <%= @user.artist %>
               </div>
+              
+              <div class="item item-border">
+                <p class="community font">参加コミュニティ</p>
+                <% @user.join_communities. each do |community| %>
+                  <%= link_to community_path(:id => community.community_id), class: 'community-name font-black' do %>
+                    <%= community.community.title %>
+                  <% end %>
+                <% end %>
+              </div>
+              
             </div>
-            <%= link_to "編集", edit_user_path(current_user.id), class: 'edit-btn btn btn-default' %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

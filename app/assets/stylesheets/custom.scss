@@ -47,6 +47,62 @@
   background-color: #FFFFFF;
 }
 
+.new-line {
+  word-break: break-all;
+}
+
+.bottom-border {
+  border-bottom: solid 1px #c0c0c0;
+}
+
+.font-black {
+  color: black;
+}
+
+/*投稿欄*/
+.content-container {
+  margin: 10px;
+  padding: 10px;
+  height: 500px;
+  overflow: auto;
+}
+  
+.user-image {
+  margin: 10px;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+  
+.user-content {
+  display: inline-block;
+  width: 80%;
+}
+    
+.content {
+  font-size: 18px;
+}
+    
+.user-name {
+  font-size: 15px;
+}
+
+.post-container {
+  margin: 10px;
+  padding: 10px;
+}
+ 
+.post-screen {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+ 
+.post-btn {
+  width: 30% !important;
+  margin-left: 70%;
+}
 
 /*ログイン、サインイン*/
 .main-container {
@@ -77,7 +133,7 @@
   }
 }
 
-/*マイページ*/
+/*ユーザーページ*/
 .user-show-wrapper {
   
   .show-container {
@@ -89,20 +145,29 @@
     padding-bottom: 30px;
   }
 
-  .follow {
-    color: black;
-    padding: 20px;
+ .follow-member {
+    padding: 10px;
     font-size: 18px;
   }
   
+  .edit-btn {
+    margin-left: 85%;
+  }
+  
+  .follow-message {
+    margin: 0 10px 10px 10px;
+  }
+  
   .image {
-    width: 70%;
-    height: 250px;
+    width: 200x;
+    height: 200px;
     padding-top: 40px;
+    object-fit: cover;
   }
   
   .one-row {
     display: flex;
+    align-items: center;
   }
   
   .item-border {
@@ -112,19 +177,13 @@
   
   .mini-font {
     padding-right: 20px;
+    height: 10px;
   }
   
   .font {
     font-size: 18px;
   }
   
-  .edit-btn {
-    color: #444444;
-    position: relative;
-    top: -200px;
-    left: 340px;
-
-  }
 }
 
 /*マイページ編集*/
@@ -146,18 +205,20 @@
     border-bottom: solid 1px #c0c0c0;
     margin: 0 40px;
     padding: 30px 0px;
+    display: flex;
+    align-items: center;
   }
  
   .index-image {
-    width: 25%;
-    height: auto;
+    width: 200px;
+    height: 100px;
     padding-right: 30px;
+    object-fit: cover;
   }
   
   .title-description {
     display: inline-block;
     width: 60%;
-    word-break: break-all;
   }
   
   .index-title {
@@ -169,7 +230,7 @@
   }
   
   .search-container {
-    padding-top: 100px;
+    padding-top: 150px;
   }
   
   .new-btn {
@@ -182,34 +243,7 @@
   
 }
 
-/*コミュニティ投稿*/
-.community-show-wrapper {
-  
- .post-container {
-   margin: 10px;
-   padding: 10px;
- }
- 
- .post-btn {
-   width: 30% !important;
-   margin-left: 70%;
- }
-
- .content-container {
-  margin: 10px;
-  padding: 10px;
-  height: 500px;
-  overflow: auto;
-  }
-    
-  .content {
-    font-size: 20px;
-  }
-    
-  .user-name {
-    margin-bottom: 0px;
-  }
-}
+/*コミュニティ投稿　右側*/
 
 .show-container-right {
   .community-description {
@@ -217,9 +251,10 @@
   }
   
   .show-image {
-    width: 100%;
-    height: auto;
+    width: 260px;
+    height: 200px;
     margin-top: 100px;
+    object-fit: cover;
   }
   
   .join-btn {
@@ -231,15 +266,22 @@
     margin: 10px;
   }
   
-  .description {
-    word-break: break-all;
-  }
-  
   .title {
     font-size: 18px;
   }
   
   .join-member {
     margin-top: 20px;
+  }
+  
+  .join-user-image {
+    margin: 20px;
+    object-fit: cover;
+    width: 40px;
+    height: 40px
+  }
+
+  .user-name {
+    font-size: 15px;
   }
 }

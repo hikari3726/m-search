@@ -8,9 +8,10 @@
           <% @communities. each do |community| %>
             <div class="index">
               <%= image_tag community.image.url, class: 'index-image' %>
-              <div class="title-description">
+              <div class="title-description new-line">
                 <p class="index-title"><%= community.title %></p>
                 <p class="member-count">参加メンバー</p>
+                <p class="join-member-count"><%= community.join_communities.count %>人</p>
               </div>
               <%= link_to "詳細", community_path(community.id) ,class: 'new-btn btn btn-default' %>
             </div>
