@@ -1,5 +1,10 @@
 ja:
   activerecord:
+    session:
+      new:
+        email: "メールアドレス"
+        password: "パスワード"
+  
     attributes:
       user:
         name: 名前
@@ -17,7 +22,5 @@ ja:
         title: コミュニティ名
         description: 内容
       
-      session:
-        email: メールアドレス
-        password: パスワード
+      
         

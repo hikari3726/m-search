@@ -1,3 +1,40 @@
-<% @user.followers.each do |user| %>
-  <%= user.name %>
-<% end %>
+<div class="follow-list-wrapper">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-offset-3 col-md-6">
+        <div class="follow-container">
+          <h2 class="text center"><%= @user.name %></h2>
+          <div class="follow-btn center" >
+            <%= link_to "フォロー", { controller: 'users', action: 'follow_list', user_id: @user.id }, class: 'follow-member font-black btn', method: :get %>
+            <p class="follow-member font-green btn">フォロワー</p>
+          </div>
+          <div class="follow-user-container">
+            <% @user.followers.each do |user| %>
+              <div class="follow-users center">
+                <%= link_to user_path(:id => user.id), class: 'follow-link' do %>
+                  <%= image_tag user.image.url, class: "user-image" %>
+                  <p class="user-name center font-black"><%= user.name %></p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          
+        </div>
+      </div>
+     
+      <div class="col-md-3">
+        <div class="show-container-right">
+          
+          
+          
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+

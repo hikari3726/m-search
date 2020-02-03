@@ -52,6 +52,15 @@
               </div>
               
               <div class="item item-border">
+                <p class="artist font">主催コミュニティ</p>
+                <% @user.communities. each do |community| %>
+                  <%= link_to community_path(:id => community.id), class: 'community-name font-black' do %>
+                    <%= community.title %>
+                  <% end %>
+                <% end %>
+              </div>
+              
+              <div class="item item-border">
                 <p class="community font">参加コミュニティ</p>
                 <% @user.join_communities. each do |community| %>
                   <%= link_to community_path(:id => community.community_id), class: 'community-name font-black' do %>

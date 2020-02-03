@@ -281,7 +281,43 @@
     height: 40px
   }
 
-  .user-name {
-    font-size: 15px;
+}
+
+/*フォロー・フォロワー一覧*/
+.follow-list-wrapper {
+  .follow-user-container {
+    width: 85%;
+    margin: 20px auto;
   }
+  
+  .follow-member {
+    padding:  10px 70px;
+    font-size: 20px;
+  }
+  
+  .follow-users {
+    width: 80px;
+    display: inline-block;
+    margin: 15px;
+  }
+  
+  .user-image {
+    margin: 0px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .user-name {
+    font-size: 18px;
+    margin: 5px 0px;
+  }
+  
+  .font-green {
+    color: #009966;
+    border-bottom: solid 1px #009966;
+  }
+  
+  
 }

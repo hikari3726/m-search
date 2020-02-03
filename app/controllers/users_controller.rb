@@ -31,23 +31,23 @@ class UsersController < ApplicationController
    end
    
    def follow
-     @user = User.find_by(params[:user_id])
+     @user = User.find(params[:user_id])
      current_user.follow(@user)
      redirect_to user_path(@user.id)
    end
 
   def unfollow
-    @user = User.find_by(params[:user_id])
+    @user = User.find(params[:user_id])
     current_user.stop_following(@user)
     redirect_to user_path(@user.id)
   end
   
   def follow_list
-    @user = User.find_by(params[:user_id])
+    @user = User.find(params[:user_id])
   end
 
   def follower_list
-    @user = User.find_by(params[:user_id])
+    @user = User.find(params[:user_id])
   end
     
   private
