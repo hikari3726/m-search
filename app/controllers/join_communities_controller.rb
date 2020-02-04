@@ -1,8 +1,8 @@
 class JoinCommunitiesController < ApplicationController
   
-  def show
-    @join_communities = JoinCommunity.all
-    @join_community = JoinCommunity.find_by(community_id: params[:id])
+  def index
+    @join_community = JoinCommunity.find_by(community_id: params[:community_id])
+    @join_communities = JoinCommunity.where(community_id: params[:community_id])
   end
   
   def create

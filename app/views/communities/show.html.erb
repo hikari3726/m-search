@@ -41,7 +41,12 @@
         <div class="show-container-right">
           <%= image_tag @community.image.url, class: 'show-image' %>
           <div class="community-description">
-            <p class="owner center">管理者：<%= @community.user.name %></p>
+            <div class="owner-container center">
+              <p class="owner owner-name">管理者：</p>
+              <%= link_to user_path(:id => @community.user.id), class: 'owner font-black' do %>
+                <%= @community.user.name %>
+              <% end %>
+            </div>
             <% if current_user.id == @community.user_id %>
               <div class="owner center">
                 <%= link_to "編集", edit_community_path(@community.id), class: 'owner-btn btn btn-default' %>
@@ -50,16 +55,15 @@
             <% elsif !@community.join_community_users.include?(current_user) %>
               <%= link_to "参加", join_communities_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-default', method: :post %>
             <% else %>
-              <%= link_to "退会", join_community_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-default', method: :delete %>
+              <%= link_to "参加中", join_community_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-success', method: :delete %>
             <% end %>
             <p class="description title">説明</p>
             <p class="description new-line"><%= @community.description %></p>
           </div>
-          <div class="join-member">
-            <%= link_to "参加者一覧", join_community_path(:community_id => params[:id]), class: 'btn btn-default' %>
-          </div>
+          <p class="join-member title">参加メンバー</p>
+          <p class="join-member-count"><%= @community.join_communities.count %>人</p>
           <div class="member">
-            <% @community.join_communities. each do |community| %>
+            <% @community.join_communities. first(5). each do |community| %>
               <div class ="mamber-info bottom-border">
                 <%= image_tag community.user.image.url, class: "join-user-image" %>
                 <%= link_to user_path(:id => community.user_id), class: 'user-name font-black'  do %>
@@ -67,6 +71,11 @@
                 <% end %>
               </div>
             <% end %>
+            <div class="plus-member">
+              <% if @community.join_communities.count > 5 %>
+                <%= link_to "さらに表示", community_join_communities_path(:community_id => params[:id]), class: 'btn center' %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

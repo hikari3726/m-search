@@ -63,7 +63,7 @@
 .content-container {
   margin: 10px;
   padding: 10px;
-  height: 500px;
+  height: 800px;
   overflow: auto;
 }
   
@@ -102,6 +102,19 @@
 .post-btn {
   width: 30% !important;
   margin-left: 70%;
+}
+
+.join-member-count {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.owner {
+  display: inline-block;
+}
+
+.owner-name {
+  margin: 0;
 }
 
 /*ログイン、サインイン*/
@@ -225,8 +238,8 @@
     font-size: 18px;
   }
   
-  .join-btn {
-    margin-left: 20px;
+  .member-count {
+    display: inline-block;
   }
   
   .search-container {
@@ -271,7 +284,8 @@
   }
   
   .join-member {
-    margin-top: 20px;
+    margin: 20px 0 0 0;
+    display: inline-block;
   }
   
   .join-user-image {
@@ -279,11 +293,12 @@
     object-fit: cover;
     width: 40px;
     height: 40px
-  }
+  }  
+  
 
 }
 
-/*フォロー・フォロワー一覧*/
+/*フォロー・フォロワー一覧・参加者一覧*/
 .follow-list-wrapper {
   .follow-user-container {
     width: 85%;

@@ -1,0 +1,33 @@
+<div class="follow-list-wrapper">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-offset-3 col-md-6">
+        <div class="follow-container">
+          <h2 class="text center"><%= @join_community.community.title %></h2>
+          <div class="follow-user-container">
+            <% @join_communities. each do |community| %>
+              <div class="follow-users center">
+                <%= link_to user_path(:id => community.user.id), class: 'follow-link' do %>
+                  <%= image_tag community.user.image.url, class: "user-image" %>
+                  <p class="user-name center font-black"><%= community.user.name %></p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          
+        </div>
+      </div>
+     
+      <div class="col-md-3">
+        <div class="show-container-right">
+          
+          
+          
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

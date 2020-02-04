@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :rooms, :only => [:show, :create]
   resources :join_communities, :only => [:show, :create, :destroy]
   
+  resources :communities do
+    resources :join_communities, only: [:index]
+  end
+  
   
   get 'community/search'
   
