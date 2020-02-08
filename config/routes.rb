@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   resources :users 
   resources :communities
   resources :posts
-  resources :rooms, :only => [:show, :create]
   resources :join_communities, :only => [:show, :create, :destroy]
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show]
   
   resources :communities do
     resources :join_communities, only: [:index]
   end
+  
+
   
   
   get 'community/search'

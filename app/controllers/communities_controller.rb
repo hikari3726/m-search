@@ -13,12 +13,10 @@ class CommunitiesController < ApplicationController
     end
   end
   
-  def search
-    @communities = Community.search(params[:search])
-  end
-  
   def index
     @communities = Community.all
+    @q = Community.ransack(params[:q])
+    @communities = @q.result(distinct: true)
   end
   
   def show

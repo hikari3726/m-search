@@ -24,6 +24,8 @@
   } 
 }
 
+
+
 .alert {
   margin-bottom: 0px;
   position: fixed;
@@ -59,16 +61,20 @@
   color: black;
 }
 
+.inline {
+  display: inline-block;
+}
+
 /*投稿欄*/
 .content-container {
   margin: 10px;
   padding: 10px;
-  height: 800px;
+  height: 500px;
   overflow: auto;
 }
   
 .user-image {
-  margin: 10px;
+  margin: 20px;
   width: 70px;
   height: 70px;
   object-fit: cover;
@@ -76,16 +82,17 @@
 }
   
 .user-content {
-  display: inline-block;
-  width: 80%;
+  width: 70%;
 }
     
 .content {
   font-size: 18px;
+  margin: 0;
 }
     
 .user-name {
   font-size: 15px;
+  margin: 0;
 }
 
 .post-container {
@@ -115,6 +122,14 @@
 
 .owner-name {
   margin: 0;
+}
+
+
+.post {
+  
+  .form-text-field {
+    width: 70%;
+  }
 }
 
 /*ログイン、サインイン*/
@@ -290,12 +305,21 @@
   
   .join-user-image {
     margin: 20px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
-    width: 40px;
-    height: 40px
+    border-radius: 50%;
   }  
-  
+}
 
+/*左側マイプロフィール*/
+.user-profire {
+  .show-image {
+    width: 260px;
+    height: 200px;
+    margin-top: 100px;
+    object-fit: cover;
+   }
 }
 
 /*フォロー・フォロワー一覧・参加者一覧*/
@@ -334,5 +358,18 @@
     border-bottom: solid 1px #009966;
   }
   
-  
 }
+
+/*DMページ*/
+.room-show-wrapper {
+  .chat {
+    .image {
+      margin: 10px;
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+}
+

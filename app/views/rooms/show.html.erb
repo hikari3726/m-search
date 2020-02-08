@@ -1,42 +1,60 @@
-<div class="room-wrapper">
+<div class="room-show-wrapper">
   <div class="container">
     <div class="row">
-     
+      
       <div class="col-md-offset-3 col-md-6">
-        <div class="room-container">
-          <h2 class="text center">メッセージ</h2>
-          <div class="post-container">
-            <%= form_for @room do |f| %>
-            <div class="form-group "> 
-              <%= f.text_area :content, class: 'form-control center' %>
-            </div>
-            <div class="form-group">
-              <%= f.hidden_field :sender_id, :value => current_user.id %>
-            </div>
-            <div class="form-group">
-              <%= f.hidden_field :user_id, :value => params[:id] %>
-            </div>
-              <%= f.submit '送信', class: 'post-btn btn-black btn-default' %>
-            <% end %>
-          </div>
-          <div class="post">
-          　<div class="content-container">
-              <% @rooms. each do |room| %>
-                <div class="post-screen bottom-border">
-                  <%= image_tag room.user.image.url, class: "user-image" %>
-                  <div class="user-content">
-                    <%= link_to user_path(:id => room.user_id), class: 'user-name font-black'  do %>
-                      <%= room.user.name %>
-                    <% end %>
-                    <p class="content new-line"><%= room.content %></p>
+        <div class="show-container">
+          <div class="show-container background-color">
+            <h2 class="text center">メッセージ</h2>
+          
+            <div class="chat content-container">
+              <% if @messages.present? %>
+                <% @messages.each do |m| %>
+                  <div class="chat-box">
+                    <div class="chat-face post-screen">
+                      <%= link_to user_path(:id => m.user.id), class: 'link-user' do %>
+                        <%= image_tag m.user.image.url, class: 'user-image' %>
+                      <% end %>
+                        <div class="inline user-content">
+                          <%= link_to user_path(:id => m.user.id), class: 'font-black user-name' do %>
+                            <%= m.user.name %>
+                          <% end %>
+                          <p class="content new-line"><%= m.content %></p>
+                          <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
+                        </div>
+                    </div>
+                    
+                    
                   </div>
+                <% end %>
+              <% end %>
+            </div>
+          
+            <div class="post">
+              <%= form_for @message do |f| %>
+                <div class="post-form center">
+                  <%= f.text_field :content, placeholder: 'メッセージを入れてください', rows: 10, class: "form-text-field" %>
+                  <%= f.hidden_field :room_id, value: @room.id %>
+                  <%= f.submit "送信", class: 'form-submit btn btn-default' %>
                 </div>
               <% end %>
             </div>
+     
           </div>
         </div>
+      <div class="col-md-3">
+        <div class="opponent-profile">
+          <%= image_tag @room.user.image.url, class: 'show-image' %>
+            <div class="community-description">
+              <%= link_to user_path(:id => @room.user.id), class: 'owner font-black' do %>
+                <%= @room.user.name %>
+              <% end %>
+            </div>
+        </div>
       </div>
-    
+
+      </div>
+
     </div>
   </div>
 </div>

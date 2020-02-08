@@ -7,7 +7,7 @@ class JoinCommunitiesController < ApplicationController
   
   def create
     @join_community = JoinCommunity.new(user_id: params[:user_id], community_id: params[:community_id])
-    #参加しています
+  
     if @join_community.save
       redirect_to controller: 'communities', action: 'show', id: @join_community.community.id
       flash[:success] = '参加しました'

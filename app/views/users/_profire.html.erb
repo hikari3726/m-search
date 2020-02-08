@@ -1,0 +1,8 @@
+<div class="user-profire">
+  <%= image_tag user.image.url, class: 'show-image' %>
+  <div class="community-description center">
+    <%= link_to user_path(:id => user.id), class: 'owner font-black' do %>
+      <%= user.name %>
+    <% end %>
+  </div>
+</div>

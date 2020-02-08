@@ -1,8 +1,10 @@
 <div class="community-show-wrapper">
   <div class="container">
     <div class="row">
-      
-      <div class="col-md-offset-3 col-md-6">
+      <div class="col-md-3">
+        <%= render :partial => 'users/profire', :locals => { user: @community.user } %>
+      </div>
+      <div class="col-md-6">
         <div class="show-container">
           <h2 class="text center"><%= @community.title %></h2>
           <div class="post-container">
@@ -23,9 +25,11 @@
           　<div class="content-container">
               <% @community.posts. each do |post| %>
                 <div class="post-screen bottom-border">
-                  <%= image_tag post.user.image.url, class: "user-image" %>
-                  <div class="user-content">
-                    <%= link_to user_path(:id => post.user_id), class: 'user-name font-black'  do %>
+                  <%= link_to user_path(:id => post.user_id), class: 'user-name font-black' do %>
+                    <%= image_tag post.user.image.url, class: "user-image" %>
+                  <% end %>
+                  <div class="user-content inline">
+                    <%= link_to user_path(:id => post.user_id), class: 'user-name font-black' do %>
                       <%= post.user.name %>
                     <% end %>
                     <p class="content new-line"><%= post.content %></p>
@@ -39,15 +43,9 @@
      
       <div class="col-md-3">
         <div class="show-container-right">
-          <%= image_tag @community.image.url, class: 'show-image' %>
-          <div class="community-description">
-            <div class="owner-container center">
-              <p class="owner owner-name">管理者：</p>
-              <%= link_to user_path(:id => @community.user.id), class: 'owner font-black' do %>
-                <%= @community.user.name %>
-              <% end %>
-            </div>
-            <% if current_user.id == @community.user_id %>
+         <%= render :partial => 'communities/admin', :locals => { community: @community } %>
+         <div class="btns center">
+           <% if current_user.id == @community.user_id %>
               <div class="owner center">
                 <%= link_to "編集", edit_community_path(@community.id), class: 'owner-btn btn btn-default' %>
                 <%= link_to "削除", community_path(@community.id), class: 'owner-btn btn btn-default', method: :delete %>
@@ -57,16 +55,14 @@
             <% else %>
               <%= link_to "参加中", join_community_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-success', method: :delete %>
             <% end %>
-            <p class="description title">説明</p>
-            <p class="description new-line"><%= @community.description %></p>
-          </div>
+         </div>
           <p class="join-member title">参加メンバー</p>
           <p class="join-member-count"><%= @community.join_communities.count %>人</p>
           <div class="member">
             <% @community.join_communities. first(5). each do |community| %>
               <div class ="mamber-info bottom-border">
-                <%= image_tag community.user.image.url, class: "join-user-image" %>
                 <%= link_to user_path(:id => community.user_id), class: 'user-name font-black'  do %>
+                  <%= image_tag community.user.image.url, class: "join-user-image" %>
                   <%= community.user.name %>
                 <% end %>
               </div>

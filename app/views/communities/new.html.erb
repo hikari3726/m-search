@@ -16,10 +16,10 @@
               </div>
               <div class="form-group">
                 <%= f.label :description, class: 'btn-text' %>
-                <%= f.text_area :description, class: 'form-control' %>
+                <%= f.text_area :description, placeholder: "300字以内" , rows: 10, class: 'form-control' %>
               </div>
               
-              <%= f.submit "作成", class: 'btn-block' %>
+              <%= f.submit "作成", class: 'btn-block btn btn-default' %>
             <% end %>
           </div>
         </div>

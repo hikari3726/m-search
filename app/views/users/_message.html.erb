@@ -1,0 +1,12 @@
+<div class="message-btn">
+  <% if @isRoom == true %>
+    <%= link_to "メッセージ", room_path(@roomId), class: 'follow-message btn btn-default' %>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, value: @user.id %>
+      <% end %>
+      <%= f.submit "メッセージ", class: "follow-message btn btn-default" %>
+    <% end %>
+  <% end %>
+</div>

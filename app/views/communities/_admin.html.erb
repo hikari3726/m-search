@@ -1,0 +1,11 @@
+<%= image_tag community.image.url, class: 'show-image' %>
+  <div class="community-description">
+    <div class="owner-container center">
+      <p class="owner owner-name">管理者：</p>
+       <%= link_to user_path(:id => community.user.id), class: 'owner font-black' do %>
+         <%= community.user.name %>
+       <% end %>
+    </div>
+      <p class="description title">説明</p>
+      <p class="description new-line"><%= community.description %></p>
+  </div>

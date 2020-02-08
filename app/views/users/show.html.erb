@@ -11,9 +11,9 @@
             </div>
             
             <div class="follow-container center">
-              <%= link_to "フォロー", { controller: 'users', action: 'follow_list', user_id: @user.id }, class: 'follow-member font-black', method: :get %>
+              <%= link_to "フォロー", { controller: 'users', action: 'follow_list', user_id: @user.id }, class: 'follow-member font-black' %>
               <%= @user.follow_count %>
-              <%= link_to "フォロワー", { controller: 'users', action: 'follower_list', user_id: @user.id}, class: 'follow-member font-black', method: :get %>
+              <%= link_to "フォロワー", { controller: 'users', action: 'follower_list', user_id: @user.id}, class: 'follow-member font-black' %>
               <%= @user.followers_count %>
             </div>
             <div class="follow center">
@@ -22,10 +22,10 @@
               <% else %>
                 <% if current_user.following? @user %>
                   <%= link_to "フォロー中", { controller: 'users', action: 'unfollow', user_id: @user.id }, class: 'follow-message btn btn-default', method: :put %>
-                  <%= link_to "メッセージ", room_path(@user.id), class: 'follow-message btn btn-default' %>
+                  <%= render :partial => 'users/message' %>
                 <% else %>
                   <%= link_to "フォローする", { controller: 'users', action: 'follow', user_id: @user.id }, class: 'follow-message btn btn-default', method: :put %>
-                  <%= link_to "メッセージ", room_path(@user.id), class: 'follow-message btn btn-default' %>
+                  <%= render :partial => 'users/message' %>
                 <% end %>
               <% end %>
             </div>
