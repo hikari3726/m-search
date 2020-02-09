@@ -44,13 +44,14 @@
         </div>
       <div class="col-md-3">
         <div class="opponent-profile">
-          <%= image_tag @room.user.image.url, class: 'show-image' %>
+          <%= image_tag @entryuser.user.image.url, class: 'show-image' %>
             <div class="community-description">
-              <%= link_to user_path(:id => @room.user.id), class: 'owner font-black' do %>
-                <%= @room.user.name %>
+              <%= link_to user_path(:id => @entryuser.user.id), class: 'owner font-black' do %>
+                <%= @entryuser.user.name %>
               <% end %>
             </div>
         </div>
+        
       </div>
 
       </div>

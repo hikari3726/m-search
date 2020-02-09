@@ -1,10 +1,11 @@
 ja:
-  activerecord:
+  devise:
     session:
       new:
-        email: "メールアドレス"
-        password: "パスワード"
+        email: メールアドレス
+        password: パスワード
   
+  activerecord:
     attributes:
       user:
         name: 名前
@@ -23,4 +24,3 @@ ja:
         description: 内容
       
       
-        

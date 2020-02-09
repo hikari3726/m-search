@@ -24,8 +24,6 @@
   } 
 }
 
-
-
 .alert {
   margin-bottom: 0px;
   position: fixed;
@@ -38,7 +36,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 .background-color-green {
   background-color: #009966;
@@ -65,70 +62,118 @@
   display: inline-block;
 }
 
-/*投稿欄*/
-.content-container {
-  margin: 10px;
-  padding: 10px;
-  height: 500px;
-  overflow: auto;
-}
-  
-.user-image {
-  margin: 20px;
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-  
-.user-content {
-  width: 70%;
-}
-    
-.content {
-  font-size: 18px;
-  margin: 0;
-}
-    
-.user-name {
-  font-size: 15px;
-  margin: 0;
-}
-
-.post-container {
-  margin: 10px;
-  padding: 10px;
-}
- 
-.post-screen {
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-}
- 
-.post-btn {
-  width: 30% !important;
-  margin-left: 70%;
-}
-
 .join-member-count {
   display: inline-block;
   margin-left: 20px;
 }
 
-.owner {
-  display: inline-block;
-}
-
-.owner-name {
-  margin: 0;
-}
-
-
-.post {
+/*コミュニティ投稿欄*/
+.show-container {
   
-  .form-text-field {
+  .post-container {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .post-btn {
+    width: 30% !important;
+    margin-left: 70%;
+  }
+  
+  .content-container {
+    margin: 10px;
+    padding: 10px;
+    height: 500px;
+    overflow: auto;
+  }
+  
+  .post-screen {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-name {
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  .user-image {
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .user-content {
     width: 70%;
+  }
+    
+  .content {
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+/*コミュニティ投稿　右側*/
+
+.show-container-right {
+  .community-description {
+    margin-top: 10px;
+  }
+  
+  .owner {
+    display: inline-block;
+    margin: 0;
+  }
+  
+  .show-image {
+    width: 80%;
+    height: 80%;
+    margin-top: 100px;
+    object-fit: cover;
+  }
+  
+  .join-btn {
+    margin-left: 60%;
+  }
+  
+  .owner-btn {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .join-member {
+    margin: 20px 0 0 0;
+    display: inline-block;
+  }
+  
+  .join-user-image {
+    margin: 20px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+  }  
+}
+
+/*コミュニティ投稿 左側マイプロフィール*/
+.user-profire {
+  .show-image {
+    width: 80%;
+    height: 80%;
+    margin-top: 100px;
+    object-fit: cover;
+   }
+   
+  .user-name {
+    font-size: 15px;
+    margin: 0;
   }
 }
 
@@ -189,7 +234,6 @@
   .image {
     width: 200x;
     height: 200px;
-    padding-top: 40px;
     object-fit: cover;
   }
   
@@ -271,57 +315,6 @@
   
 }
 
-/*コミュニティ投稿　右側*/
-
-.show-container-right {
-  .community-description {
-    margin-top: 10px;
-  }
-  
-  .show-image {
-    width: 260px;
-    height: 200px;
-    margin-top: 100px;
-    object-fit: cover;
-  }
-  
-  .join-btn {
-    margin-left: 80%;
-  }
-  
-  .owner-btn {
-    display: inline-block;
-    margin: 10px;
-  }
-  
-  .title {
-    font-size: 18px;
-  }
-  
-  .join-member {
-    margin: 20px 0 0 0;
-    display: inline-block;
-  }
-  
-  .join-user-image {
-    margin: 20px;
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 50%;
-  }  
-}
-
-/*左側マイプロフィール*/
-.user-profire {
-  .show-image {
-    width: 260px;
-    height: 200px;
-    margin-top: 100px;
-    object-fit: cover;
-   }
-}
-
 /*フォロー・フォロワー一覧・参加者一覧*/
 .follow-list-wrapper {
   .follow-user-container {
@@ -371,5 +364,12 @@
       border-radius: 50%;
     }
   }
+  
+  .post {
+    .form-text-field {
+      width: 70%;
+    }
+   } 
 }
+
 

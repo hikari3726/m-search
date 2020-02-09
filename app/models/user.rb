@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :name, presence: true, uniqueness: true, length: {maximum: 15}
+  VALID_PASSWORED_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
+  validates :email, presence: true, uniqueness: true, format: {with: VALID_EMAIL_REGEX}
+  validates :password, presence: true, length: {minimum: 8, maximum: 32 }, format: {with: VALID_PASSWORED_REGEX}
   validates :artist, length: { maximum: 300 }
   validates :description, length: { maximum: 300 }
 
