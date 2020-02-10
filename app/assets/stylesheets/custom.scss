@@ -24,6 +24,10 @@
   } 
 }
 
+body {
+  padding-top: 80px;
+}
+
 .alert {
   margin-bottom: 0px;
   position: fixed;
@@ -67,6 +71,21 @@
   margin-left: 20px;
 }
 
+/*左側ユーザー 右側ユーザープロフィール*/
+.profile {
+  .show-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 100px auto 15px auto;
+  }
+  
+  .item {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+}
+
 /*コミュニティ投稿欄*/
 .show-container {
   
@@ -74,10 +93,10 @@
     margin: 10px;
     padding: 10px;
   }
-
-  .post-btn {
-    width: 30% !important;
-    margin-left: 70%;
+  
+  .form-text-field {
+    width: 500px;
+    margin-left: 25px;
   }
   
   .content-container {
@@ -162,20 +181,7 @@
   }  
 }
 
-/*コミュニティ投稿 左側マイプロフィール*/
-.user-profire {
-  .show-image {
-    width: 80%;
-    height: 80%;
-    margin-top: 100px;
-    object-fit: cover;
-   }
-   
-  .user-name {
-    font-size: 15px;
-    margin: 0;
-  }
-}
+
 
 /*ログイン、サインイン*/
 .main-container {
@@ -203,6 +209,10 @@
   .new-form {
     width: 50%;
     margin: 40px auto;
+  }
+  
+  .font-weight {
+    font-weight: bold;
   }
 }
 
@@ -255,8 +265,9 @@
   .font {
     font-size: 18px;
   }
-  
 }
+
+
 
 /*マイページ編集*/
 .user-edit-wrapper {

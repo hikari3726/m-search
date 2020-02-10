@@ -1,26 +1,13 @@
 <div class="community-show-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <%= render :partial => 'users/profire', :locals => { user: @community.user } %>
+      <div class="col-md-2">
+        <%= render :partial => 'users/profile' %>
       </div>
-      <div class="col-md-6">
+
+      <div class="col-md-7">
         <div class="show-container">
           <h2 class="text center"><%= @community.title %></h2>
-          <div class="post-container">
-            <%= form_for @post,:url => {controller: "posts", action: "create" } do |f| %>
-            <div class="form-group ">
-              <%= f.text_area :content, class: 'form-control center' %>
-            </div>
-            <div class="form-group">
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-            </div>
-            <div class="form-group">
-               <%= f.hidden_field :community_id, :value => @community.id %>
-            </div>
-              <%= f.submit '投稿', class: 'post-btn btn-default' %>
-            <% end %>
-          </div>
           <div class="post">
           　<div class="content-container">
               <% @community.posts. each do |post| %>
@@ -33,10 +20,19 @@
                       <%= post.user.name %>
                     <% end %>
                     <p class="content new-line"><%= post.content %></p>
+                    <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
                   </div>
                 </div>
               <% end %>
             </div>
+          </div>
+          <div class="post-container">
+            <%= form_for @post,:url => {controller: "posts", action: "create" } do |f| %>
+              <%= f.text_field :content, placeholder: 'メッセージを入れてください', class: 'form-text-field' %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.hidden_field :community_id, :value => @community.id %>
+              <%= f.submit '投稿', class: 'post-btn btn btn-default' %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -59,7 +55,7 @@
           <p class="join-member title">参加メンバー</p>
           <p class="join-member-count"><%= @community.join_communities.count %>人</p>
           <div class="member">
-            <% @community.join_communities. first(5). each do |community| %>
+            <% @community.join_communities. first(3). each do |community| %>
               <div class ="bottom-border">
                 <%= link_to user_path(:id => community.user_id), class: 'user-name font-black'  do %>
                   <%= image_tag community.user.image.url, class: "join-user-image" %>
@@ -68,7 +64,7 @@
               </div>
             <% end %>
             <div class="plus-member">
-              <% if @community.join_communities.count > 5 %>
+              <% if @community.join_communities.count > 3 %>
                 <%= link_to "さらに表示", community_join_communities_path(:community_id => params[:id]), class: 'btn center' %>
               <% end %>
             </div>

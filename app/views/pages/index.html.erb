@@ -3,16 +3,18 @@
     <div class="container">
       <div class="top-container">
         <h1 class="title">M-Search</h1>
-        <h4 class="title">音楽の仲間を探すアプリです</h4>
+        <h4 class="title">音楽の仲間を探すアプリ</h4>
       </div>
       <div class="middle-container">
         <div class="row">
-          <div class="col-md-offset-3 col-md-3">
-            <%= link_to "サインイン", new_user_path, class: 'btn middle-container-left center' %>
-          </div>
-          <div class="col-md-3">
-            <%= link_to "ログイン", login_path, class: 'btn middle-container-right center' %>
-          </div>
+          <% if !logged_in? %>
+            <div class="col-md-offset-3 col-md-3">
+              <%= link_to "サインイン", new_user_path, class: 'btn middle-container-left center' %>
+              </div>
+            <div class="col-md-3">
+              <%= link_to "ログイン", login_path, class: 'btn middle-container-right center' %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -23,12 +25,12 @@
         <div class="row-container-left col-md-offset-2 col-md-4">
           <!__画像挿入__!>
           <h2 class="function-title center">コミュニティ</h2>
-          <h5 class="function-description center">コミュニティ作成・参加することができる</h5>
+          <h5 class="function-description center">コミュニティ参加することで友達の輪を広げよう</h5>
         </div>
         <div class="row-container-right col-md-4"> 
           <!__画像挿入__!>
           <h2 class="function-title center">DMが送れる</h2>
-          <h5 class="function-description center">仲良くなった子同士で連絡が取れる</h5>
+          <h5 class="function-description center">個人間のやりとりもできる</h5>
         </div>
       </div>
     </div>

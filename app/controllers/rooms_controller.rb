@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  #before_action :authenticate_user!
+
   
   def create
     @room = Room.create
@@ -14,7 +14,8 @@ class RoomsController < ApplicationController
       @messages = @room.messages
       @message = Message.new
       @entries = @room.entries
-      @entryuser = Entry.where(room_id: @room.id).where.not(user_id: current_user.id)
+     # @entryuser = Entry.where(room_id: @room.id).where.not(user_id: current_user.id).first
+      @entryuser = Entry.find_by("room_id = ? and user_id != ?", @room.id, current_user.id)
     else
       redirect_back(fallback_location: root_path)
     end

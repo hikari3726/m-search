@@ -1,12 +1,14 @@
 <div class="room-show-wrapper">
   <div class="container">
     <div class="row">
-      
-      <div class="col-md-offset-3 col-md-6">
+      <div class="col-md-2">
+        <%= render :partial => 'users/profile' %>
+      </div>
+
+      <div class="col-md-7">
         <div class="show-container">
           <div class="show-container background-color">
             <h2 class="text center">メッセージ</h2>
-          
             <div class="chat content-container">
               <% if @messages.present? %>
                 <% @messages.each do |m| %>
@@ -23,12 +25,11 @@
                           <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
                         </div>
                     </div>
-                    
-                    
                   </div>
                 <% end %>
               <% end %>
             </div>
+          </div>
           
             <div class="post">
               <%= form_for @message do |f| %>
@@ -39,23 +40,21 @@
                 </div>
               <% end %>
             </div>
-     
           </div>
         </div>
+      
       <div class="col-md-3">
-        <div class="opponent-profile">
-          <%= image_tag @entryuser.user.image.url, class: 'show-image' %>
+       <div class="profile">
+          <%= image_tag @entryuser.user.image.url, class: 'show-image center' %>
             <div class="community-description">
-              <%= link_to user_path(:id => @entryuser.user.id), class: 'owner font-black' do %>
+              <%= link_to user_path(:id => @entryuser.user.id), class: 'owner font-black center' do %>
                 <%= @entryuser.user.name %>
               <% end %>
             </div>
         </div>
-        
       </div>
-
-      </div>
-
+     
+   
     </div>
   </div>
 </div>

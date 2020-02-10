@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
   
-  #before_action :authenticate_user!, only: [:show]
-  #↑ログイン済みユーザーのみ許可
-  
   def new
     @user = User.new
   end
