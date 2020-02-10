@@ -146,6 +146,7 @@ GEM
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pg (1.2.2)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
     pry (0.12.2)
@@ -282,6 +283,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
+  pg
   pry-byebug
   pry-doc
   pry-rails
