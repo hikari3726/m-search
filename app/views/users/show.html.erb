@@ -7,7 +7,9 @@
           
           <div class="self-introduction">
             <div class="item center">
+              <% if @user.image != nil %>
                 <%= image_tag @user.image.url, class: 'image' %>
+              <% end %>  
             </div>
             
             <div class="follow-container center">
