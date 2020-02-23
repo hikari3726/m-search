@@ -4,16 +4,16 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
   
-  resources :users 
-  resources :communities
   resources :posts
   resources :join_communities, :only => [:show, :create, :destroy]
   resources :messages, :only => [:create]
-  resources :rooms, :only => [:create, :show]
+  resources :rooms, :only => [:create, :show, :index]
   
   resources :communities do
     resources :join_communities, only: [:index]
   end
+  
+ resources :users
   
 
   

@@ -1,6 +1,6 @@
 <div class="message-btn">
   <% if @isRoom == true %>
-    <%= link_to "メッセージ", room_path(@roomId), class: 'follow-message btn btn-default' %>
+    <%= link_to "メッセージ", room_path(@roomId), class: 'follow-message btn btn-hover btn-default' %>
   <% else %>
     <%= form_for @room do |f| %>
       <%= fields_for @entry do |e| %>

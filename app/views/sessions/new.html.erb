@@ -1,9 +1,9 @@
-<div class="user-new-wrapper">
+<div class="login-wrapper background-color">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
-        <div class="new-container background-color">
-          <h2 class="text center">ログイン</h2>
+        <div class="new-container white">
+          <h2 class="text-80 center title">ログイン</h2>
           <div class="new-form">
             <%= form_for :session, url: login_path do |f| %>
               <div class="form-group">
@@ -14,7 +14,7 @@
                 <p class="font-weight">パスワード</p>
                 <%= f.password_field :password, class: 'form-control' %>
               </div>
-              <%= f.submit "ログイン", class: 'btn-block btn btn-default' %>
+              <%= f.submit "ログイン", class: 'btn-block btn login-btn' %>
             <% end %>
           </div>
         </div>

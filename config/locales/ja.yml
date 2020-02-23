@@ -4,6 +4,10 @@ ja:
       new:
         email: メールアドレス
         password: パスワード
+        
+  time:
+    formats:
+      default: "%m/%d %H:%M"
   
   activerecord:
     attributes:
@@ -20,7 +24,10 @@ ja:
         description: 自己紹介
         
       community:
-        title: コミュニティ名
+        title: グループ名
         description: 内容
+        
+      post: 
+        content: 内容
       
       

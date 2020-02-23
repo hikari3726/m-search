@@ -1,37 +1,36 @@
-<div class="user-show-wrapper">
+<div class="user-show-wrapper background-color">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
-        <div class="show-container background-color">
-          <h2 class="text center"><%= @user.name %></h2>
+        <div class="show-container white">
+          <h2 class="text-80 center name"><%= @user.name %></h2>
           
           <div class="self-introduction">
-            <div class="item center">
+            <div class="center">
               <% if @user.image != nil %>
                 <%= image_tag @user.image.url, class: 'image' %>
               <% end %>  
             </div>
             
             <div class="follow-container center">
-              <%= link_to "フォロー", { controller: 'users', action: 'follow_list', user_id: @user.id }, class: 'follow-member font-black' %>
+              <%= link_to "フォロー", { controller: 'users', action: 'follow_list', user_id: @user.id }, class: 'follow-member' %>
               <%= @user.follow_count %>
-              <%= link_to "フォロワー", { controller: 'users', action: 'follower_list', user_id: @user.id}, class: 'follow-member font-black' %>
+              <%= link_to "フォロワー", { controller: 'users', action: 'follower_list', user_id: @user.id}, class: 'follow-member' %>
               <%= @user.followers_count %>
             </div>
             <div class="follow center">
               <% if current_user.id == @user.id %>
-                <%= link_to "編集", edit_user_path(current_user.id), class: 'edit-btn btn btn-default' %>
+                <%= link_to "編集", edit_user_path(current_user.id), class: 'edit-btn btn-hover btn btn-default' %>
               <% else %>
                 <% if current_user.following? @user %>
-                  <%= link_to "フォロー中", { controller: 'users', action: 'unfollow', user_id: @user.id }, class: 'follow-message btn btn-default', method: :put %>
+                  <%= link_to "フォロー中", { controller: 'users', action: 'unfollow', user_id: @user.id }, class: 'follow-message btn-hover btn btn-info', method: :put %>
                   <%= render :partial => 'users/message' %>
                 <% else %>
-                  <%= link_to "フォローする", { controller: 'users', action: 'follow', user_id: @user.id }, class: 'follow-message btn btn-default', method: :put %>
+                  <%= link_to "フォローする", { controller: 'users', action: 'follow', user_id: @user.id }, class: 'follow-message btn-hover btn btn-default', method: :put %>
                   <%= render :partial => 'users/message' %>
                 <% end %>
               <% end %>
             </div>
- 
               
             <div class='item-container'>
               <div class="one-row">
@@ -54,20 +53,22 @@
               </div>
               
               <div class="item item-border">
-                <p class="artist font">主催コミュニティ</p>
+                <p class="artist font">主催グループ</p>
                 <% @user.communities. each do |community| %>
-                  <%= link_to community_path(:id => community.id), class: 'community-name font-black' do %>
+                  <%= link_to community_path(:id => community.id), class: 'font-black hover' do %>
                     <%= community.title %>
                   <% end %>
+                  <br>
                 <% end %>
               </div>
               
               <div class="item item-border">
-                <p class="community font">参加コミュニティ</p>
+                <p class="community font">参加グループ</p>
                 <% @user.join_communities. each do |community| %>
                   <%= link_to community_path(:id => community.community_id), class: 'community-name font-black' do %>
                     <%= community.community.title %>
                   <% end %>
+                  <br>
                 <% end %>
               </div>
               

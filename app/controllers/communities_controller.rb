@@ -6,9 +6,8 @@ class CommunitiesController < ApplicationController
   def create
     @community = current_user.communities.new(community_params)
     if @community.save
-      redirect_to communities_path, success: 'コミュニティ作成しました'
+      redirect_to communities_path, success: 'グループを作成しました'
     else
-      flash.now[:danger] = "コミュニティ作成失敗しました"
       render :new
     end
   end
@@ -27,7 +26,7 @@ class CommunitiesController < ApplicationController
   def destroy
     @community = Community.find(params[:id])
     @community.destroy
-    redirect_to communities_path, success: 'コミュニティを削除しました'
+    redirect_to communities_path, success: 'グループを削除しました'
   end
   
   def edit

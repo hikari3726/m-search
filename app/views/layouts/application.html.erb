@@ -6,39 +6,45 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-fixed-top">
+    
+    <nav class="navbar navbar-fixed-top bottom-border">
       <div class="container" >
+        
         <div class="navbar-left">
-          <%= link_to "M-Search", root_path, class: 'navbar-white' %>
+          <%= link_to "M-Search", root_path, class: 'link' %>
         </div>
+        
         <div class="navbar-right">
           <ul>
-            <% if logged_in? %>
+           <% if logged_in? %>
               <li>
-                <%= link_to "マイページ", user_path(id: current_user.id), class: 'navbar-white' %>
+                <%= link_to "マイページ", user_path(id: current_user.id), class: 'link' %>
               </li>
               <li>
-                <%= link_to "コミュニティ", communities_path, class: 'navbar-white' %>
+                <%= link_to "コミュニティ", communities_path, class: 'link' %>
               </li>
               <li>
-                <%= link_to "ログアウト", logout_path, class: 'navbar-white', method: :delete %>
+                <%= link_to "ログアウト", logout_path, class: 'link', method: :delete %>
               </li>
             <% else %>
               <li>
-                <%= link_to "サインイン", new_user_path, class: 'navbar-white' %>
+                <%= link_to "新規登録", new_user_path, class: 'link' %>
               </li>
               <li>
-                <%= link_to "ログイン", login_path, class: 'navbar-white' %>
+                <%= link_to "ログイン", login_path, class: 'link' %>
               </li>
             <% end %>
           </ul>
         </div>
+      
       </div>
     </nav>
+     
     
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
@@ -51,5 +57,29 @@
         $(".alert").fadeOut(5000);
       });
     </script>
+    
+    <script type="text/javascript">
+      $(function() {
+       function readURL(input) {
+         if (input.files && input.files[0]) {
+           var reader = new FileReader();
+           reader.onload = function (e) {
+       $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+       }
+       $("#user_img").change(function(){
+         readURL(this);
+       });
+      });
+    </script>
+    
+    <footer class="footer center">
+      <div class="footer-center">
+        <p>M-Search</p>
+      </div>
+    </footer>
+  
   </body>
 </html>

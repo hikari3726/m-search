@@ -1,13 +1,16 @@
-<div class="follow-list-wrapper">
+<div class="user-list-wrapper background-color">
   <div class="container">
     <div class="row">
+      <div class="col-md-2">
+        <%= render :partial => 'users/profile' %>
+      </div>
       
-      <div class="col-md-offset-3 col-md-6">
-        <div class="follow-container">
-          <h2 class="text center"><%= @join_community.community.title %></h2>
-          <div class="follow-user-container">
+      <div class="col-md-7">
+        <div class="list-container white">
+          <h2 class="text-80 center"><%= @join_community.community.title %></h2>
+          <div class="user-container">
             <% @join_communities. each do |community| %>
-              <div class="follow-users center">
+              <div class="users center">
                 <%= link_to user_path(:id => community.user.id), class: 'follow-link' do %>
                   <%= image_tag community.user.image.url, class: "user-image" %>
                   <p class="user-name center font-black"><%= community.user.name %></p>
@@ -15,12 +18,11 @@
               </div>
             <% end %>
           </div>
-          
         </div>
       </div>
      
       <div class="col-md-3">
-        <div class="show-container-right">
+        <div class="show-container-right white">
           <%= render :partial => 'communities/admin', :locals => { community: @join_community.community } %>
         </div>
       </div>

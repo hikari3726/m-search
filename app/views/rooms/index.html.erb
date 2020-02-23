@@ -1,0 +1,35 @@
+<div class="room-index-wrapper">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-2">
+        <%= render :partial => 'users/profile' %>
+      </div>
+
+      <div class="col-md-8">
+        <div class="show-container">
+          <div class="show-container background-color">
+            <h2 class="text center">メッセージ一覧</h2>
+            <div class="chat content-container">
+              <% if @entry.present? %>
+                <% @entryuser.each do |u| %>
+                  <%= link_to "#", class:'user-message' do %>
+                    <%= image_tag u.user.image.url, class:'user-image' %>
+                    <%= u.user.name %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="col-md-2">
+
+      </div>
+     
+   
+    </div>
+  </div>
+</div>

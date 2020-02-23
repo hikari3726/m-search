@@ -1,4 +1,4 @@
-<div class="community-index-wrapper">
+<div class="community-index-wrapper background-color">
   <div class="container">
     <div class="row">
       <div class="col-md-2">
@@ -6,8 +6,17 @@
       </div>
      
       <div class="col-md-8">
-        <div class="index-container background-color">
-          <h2 class="text center">コミュニティ一覧</h2>
+        <div class="index-container white">
+          <h2 class="text-80 center">グループ一覧</h2>
+          <div class="search-container input-group">
+            <%= search_form_for @q do |f| %>
+              <%= f. text_field :title_cont, placeholder: 'キーワードを入力', class: 'search' %>
+              <%= f.submit "検索", class: 'btn-hover btn btn-default' %>
+            <% end %>
+          </div>
+          <div class="community-new">
+            <%= link_to "コミュニティ作成", new_community_path, class: 'new-btn btn btn-default btn-hover' %>
+          </div>
           <% @communities. each do |community| %>
             <div class="index">
               <%= image_tag community.image.url, class: 'index-image' %>
@@ -16,22 +25,13 @@
                 <p class="member-count">参加メンバー</p>
                 <p class="join-member-count"><%= community.join_communities.count %>人</p>
               </div>
-              <%= link_to "詳細", community_path(community.id) ,class: 'new-btn btn btn-default' %>
+              <%= link_to "詳細", community_path(community.id) ,class: 'community-btn btn btn-default btn-hover' %>
             </div>
           <% end %>
         </div>
       </div>
      
       <div class="col-md-2">
-        <div class="search-container">
-          <%= search_form_for @q do |f| %>
-            <%= f. search_field :title_cont %>
-            <%= f.submit "検索", class: 'btn btn-default' %>
-          <% end %>
-        </div>
-        <div class="community-new">
-          <%= link_to "コミュニティ作成", new_community_path, class: 'new-btn btn btn-default' %>
-        </div>
       </div>
     
   </div>

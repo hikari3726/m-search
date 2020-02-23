@@ -1,12 +1,20 @@
-<div class="profile ">
-  <%= image_tag current_user.image.url, class: 'show-image center' %>
-  <div class="user-name center">
-    <%= link_to user_path(:id => current_user.id), class: 'font-black' do %>
-      <%= current_user.name %>
+<div class="profile white">
+  <div class = "mypage profile-item center">
+    <%= link_to user_path(id: current_user.id), class: 'font-gray' do %>
+      <%= image_tag current_user.image.url, class: 'show-image inline' %>
+      <p class="inline"><%= current_user.name %></p>
     <% end %>
   </div>
-    <div class="my-page item center">
-      <%= link_to "マイページ", user_path(id: current_user.id), class: 'font-black' %>
-    </div>
-    
+  <div class ="message profile-item center">
+    <%= link_to rooms_path, class: 'font-gray' do %>
+      <%= image_tag "mail.png", class: 'inleine mail-icon' %>
+      <p class="inline">メッセージ</p>
+    <% end %>
+  </div>
+  <div class ="group profile-item center">
+    <%= link_to "#", class: 'font-gray' do %>
+      <%= image_tag "group.png", class: 'inleine' %>
+      <p class="inline">グループ</p>
+    <% end %>
+  </div>
 </div>

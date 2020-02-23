@@ -1,4 +1,4 @@
-<div class="community-show-wrapper">
+<div class="community-show-wrapper background-color">
   <div class="container">
     <div class="row">
       <div class="col-md-2">
@@ -6,50 +6,49 @@
       </div>
 
       <div class="col-md-7">
-        <div class="show-container">
-          <h2 class="text center"><%= @community.title %></h2>
-          <div class="post">
-          　<div class="content-container">
-              <% @community.posts. each do |post| %>
-                <div class="post-screen bottom-border">
-                  <%= link_to user_path(:id => post.user_id), class: 'user-name font-black' do %>
-                    <%= image_tag post.user.image.url, class: "user-image" %>
-                  <% end %>
-                  <div class="user-content inline">
-                    <%= link_to user_path(:id => post.user_id), class: 'user-name font-black' do %>
-                      <%= post.user.name %>
-                    <% end %>
-                    <p class="content new-line"><%= post.content %></p>
-                    <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-          <div class="post-container">
+        <div class="show-container white">
+          <h2 class="text-title center new-line"><%= @community.title %></h2>
+          <div class="post center">
             <%= form_for @post,:url => {controller: "posts", action: "create" } do |f| %>
+              <%= render 'layouts/error_messages', model: f.object %>
               <%= f.text_field :content, placeholder: 'メッセージを入れてください', class: 'form-text-field' %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
               <%= f.hidden_field :community_id, :value => @community.id %>
-              <%= f.submit '投稿', class: 'post-btn btn btn-default' %>
+              <%= f.submit '投稿', class: 'btn-hover btn btn-default' %>
+            <% end %>
+          </div>
+          <div class="content-container">
+            <% @community.posts. each do |post| %>
+              <div class="post-screen bottom-border">
+                <%= link_to user_path(:id => post.user_id), class: 'user-name font-black' do %>
+                  <%= image_tag post.user.image.url, class: "user-image" %>
+                <% end %>
+                <div class="user-content inline">
+                  <%= link_to user_path(:id => post.user_id), class: 'user-name font-black' do %>
+                    <%= post.user.name %>
+                  <% end %>
+                  <p class="content new-line"><%= post.content %></p>
+                  <%= l post.created_at %>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>
       </div>
      
       <div class="col-md-3">
-        <div class="show-container-right">
+        <div class="show-container-right white">
          <%= render :partial => 'communities/admin', :locals => { community: @community } %>
          <div class="center">
            <% if current_user.id == @community.user_id %>
               <div class="center">
-                <%= link_to "編集", edit_community_path(@community.id), class: 'owner-btn btn btn-default' %>
-                <%= link_to "削除", community_path(@community.id), class: 'owner-btn btn btn-default', method: :delete %>
+                <%= link_to "編集", edit_community_path(@community.id), class: 'owner-btn btn btn-default btn-hover' %>
+                <%= link_to "削除", community_path(@community.id), class: 'owner-btn btn btn-default btn-hover', method: :delete %>
               </div>
             <% elsif !@community.join_community_users.include?(current_user) %>
-              <%= link_to "参加", join_communities_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-default', method: :post %>
+              <%= link_to "参加", join_communities_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-default btn-hover', method: :post %>
             <% else %>
-              <%= link_to "参加中", join_community_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-success', method: :delete %>
+              <%= link_to "参加中", join_community_path(:user_id => current_user.id, :community_id => params[:id]), class: 'join-btn btn btn-info btn-hover', method: :delete %>
             <% end %>
          </div>
           <p class="join-member title">参加メンバー</p>
