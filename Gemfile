@@ -82,3 +82,4 @@ gem 'ransack'
 gem 'bootstrap-select-rails'
 gem 'devise-i18n'
 
+

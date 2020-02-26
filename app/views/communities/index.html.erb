@@ -10,24 +10,26 @@
           <h2 class="text-80 center">グループ一覧</h2>
           <div class="search-container input-group">
             <%= search_form_for @q do |f| %>
-              <%= f. text_field :title_cont, placeholder: 'キーワードを入力', class: 'search' %>
+              <%= f.text_field :title_cont, placeholder: 'キーワードを入力', class: 'search' %>
               <%= f.submit "検索", class: 'btn-hover btn btn-default' %>
             <% end %>
           </div>
           <div class="community-new">
-            <%= link_to "コミュニティ作成", new_community_path, class: 'new-btn btn btn-default btn-hover' %>
+            <%= link_to "グループ作成", new_community_path, class: 'new-btn btn btn-default btn-hover' %>
           </div>
-          <% @communities. each do |community| %>
-            <div class="index">
-              <%= image_tag community.image.url, class: 'index-image' %>
-              <div class="title-description new-line">
-                <p class="index-title"><%= community.title %></p>
-                <p class="member-count">参加メンバー</p>
-                <p class="join-member-count"><%= community.join_communities.count %>人</p>
+          <div class="communities">
+            <% @communities. each do |community| %>
+              <div class="index">
+                <%= image_tag community.image.url, class: 'index-image' %>
+                <div class="title-description new-line inline">
+                  <p class="index-title"><%= community.title %></p>
+                  <p class="member-count inline">参加メンバー</p>
+                  <p class="join-member-count"><%= community.join_communities.count %>人</p>
+                </div>
+                <%= link_to "詳細", community_path(community.id) ,class: 'community-btn btn btn-default btn-hover' %>
               </div>
-              <%= link_to "詳細", community_path(community.id) ,class: 'community-btn btn btn-default btn-hover' %>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
      

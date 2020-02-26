@@ -7,13 +7,13 @@
       
       <div class="col-md-7">
         <div class="list-container white">
-          <h2 class="text-80 center"><%= @join_community.community.title %></h2>
+          <h2 class="text center"><%= @join_community.community.title %></h2>
           <div class="user-container">
             <% @join_communities. each do |community| %>
-              <div class="users center">
-                <%= link_to user_path(:id => community.user.id), class: 'follow-link' do %>
-                  <%= image_tag community.user.image.url, class: "user-image" %>
-                  <p class="user-name center font-black"><%= community.user.name %></p>
+              <div class="users inline">
+                <%= link_to user_path(:id => community.user.id), class: 'font-link' do %>
+                  <%= image_tag community.user.image.url, class: "user-image center" %>
+                  <p class="user-name center font-gray"><%= community.user.name %></p>
                 <% end %>
               </div>
             <% end %>

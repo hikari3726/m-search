@@ -26,11 +26,14 @@ class CommunitiesController < ApplicationController
   def destroy
     @community = Community.find(params[:id])
     @community.destroy
-    redirect_to communities_path, success: 'グループを削除しました'
+    redirect_to communities_path, danger: 'グループを削除しました'
   end
   
   def edit
     @community = Community.find(params[:id])
+    if @community.user_id != current_user.id
+      redirect_to root_path, danger: 'そのページにはいけません'
+    end
   end
   
   def update
@@ -38,7 +41,6 @@ class CommunitiesController < ApplicationController
       if @community.update(community_params)
         redirect_to community_path(params[:id]), success: '変更しました'
       else
-        flash.now[:danger] = '変更失敗しました'
         render :edit
       end
   end

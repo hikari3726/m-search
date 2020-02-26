@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
         <div class="show-container white">
-          <h2 class="text-80 center name"><%= @user.name %></h2>
+          <h2 class="text-80 center"><%= @user.name %></h2>
           
           <div class="self-introduction">
             <div class="center">
@@ -44,19 +44,19 @@
               
               <div class="item item-border">
                 <p class="description font">自己紹介</p>
-                <%= @user.description %>
+                <p class="new-line"><%= @user.description %></p>
               </div>
               
               <div class="item item-border">
                 <p class="artist font">好きなアーティスト</p>
-                <%= @user.artist %>
+                <p class="new-line"><%= @user.artist %></p>
               </div>
               
               <div class="item item-border">
                 <p class="artist font">主催グループ</p>
                 <% @user.communities. each do |community| %>
-                  <%= link_to community_path(:id => community.id), class: 'font-black hover' do %>
-                    <%= community.title %>
+                  <%= link_to community_path(:id => community.id), class: 'font-gray' do %>
+                    ・<%= community.title %>
                   <% end %>
                   <br>
                 <% end %>
@@ -65,8 +65,8 @@
               <div class="item item-border">
                 <p class="community font">参加グループ</p>
                 <% @user.join_communities. each do |community| %>
-                  <%= link_to community_path(:id => community.community_id), class: 'community-name font-black' do %>
-                    <%= community.community.title %>
+                  <%= link_to community_path(:id => community.community_id), class: 'community-name font-gray' do %>
+                    ・<%= community.community.title %>
                   <% end %>
                   <br>
                 <% end %>

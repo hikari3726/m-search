@@ -1,4 +1,4 @@
-<div class="room-show-wrapper">
+<div class="room-show-wrapper background-color">
   <div class="container">
     <div class="row">
       <div class="col-md-2">
@@ -6,29 +6,31 @@
       </div>
 
       <div class="col-md-8">
-        <div class="show-container">
-          <div class="show-container background-color">
-            <h2 class="text center">メッセージ</h2>
-            <div class="chat content-container">
-              <% if @messages.present? %>
-                <% @messages.each do |m| %>
-                  <div class="chat-box">
-                    <div class="chat-face post-screen">
-                      <%= link_to user_path(:id => m.user.id), class: 'link-user' do %>
-                        <%= image_tag m.user.image.url, class: 'user-image' %>
+        <div class="show-container white">
+          <%= link_to user_path(:id => @entryuser.user.id), class: 'user-name' do %>
+            <h2 class="text center font-black"><%= @entryuser.user.name %></h2>
+          <% end %>
+          <div class="chat content-container">
+            <% if @messages.present? %>
+              <% @messages.each do |m| %>
+                <div class="chat-box">
+                  <div class="chat-face post-screen">
+                    <%= link_to user_path(:id => m.user.id), class: 'link-user' do %>
+                      <%= image_tag m.user.image.url, class: 'user-image' %>
+                    <% end %>
+                    <div class="inline user-content">
+                      <%= link_to user_path(:id => m.user.id), class: 'font-gray user-name' do %>
+                        <%= m.user.name %>
                       <% end %>
-                        <div class="inline user-content">
-                          <%= link_to user_path(:id => m.user.id), class: 'font-black user-name' do %>
-                            <%= m.user.name %>
-                          <% end %>
-                          <p class="content new-line"><%= m.content %></p>
-                          <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
-                        </div>
+                      <p class="content new-line"><%= m.content %></p>
+                      <%= l m.created_at %>
                     </div>
                   </div>
-                <% end %>
+                </div>
               <% end %>
-            </div>
+            <% else %>
+              <h4 class="no-message center">メッセージはありません</h4>
+            <% end %>
           </div>
           
             <div class="post">
@@ -42,19 +44,7 @@
             </div>
           </div>
         </div>
-      
-      <div class="col-md-2">
-       <div class="profile">
-          <%= image_tag @entryuser.user.image.url, class: 'show-image center' %>
-            <div class="community-description">
-              <%= link_to user_path(:id => @entryuser.user.id), class: 'owner font-black center' do %>
-                <%= @entryuser.user.name %>
-              <% end %>
-            </div>
-        </div>
-      </div>
      
-   
     </div>
   </div>
 </div>

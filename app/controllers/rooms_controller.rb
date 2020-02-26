@@ -22,8 +22,13 @@ class RoomsController < ApplicationController
   end
   
   def index
-    @entry = Entry.find_by(user_id: current_user.id)
-    @entryuser = Entry.where(room_id: @entry.room_id).where.not(user_id: current_user.id)
+    @entry = Entry.where(user_id: current_user.id)
+    entryuser = []
+    @entry.each do |entry|
+      entryuser << entry.room_id
+    end
+    @entryuser = Entry.where(room_id: entryuser).where.not(user_id: current_user.id)
+   
   end
   
 end

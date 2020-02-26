@@ -6,20 +6,20 @@
       </div>
       <div class="col-md-8">
         <div class="new-container white">
-          <h2 class="text-80 center">グループ作成</h2>
+          <h2 class="text center">グループ作成</h2>
           <div class="new-form">
             <%= form_for @community do |f| %>
               <%= render 'layouts/error_messages', model: f.object %>
               <div class="form-group center">
                 <% if @community.image? %>
-                  <%= image_tag @community.image.url, class: 'user-image', id: :img_prev %>
+                  <%= image_tag @community.image.url, class: 'community-image', id: :img_prev %>
                 <% else %>
-                  <%= image_tag "livehouse.jpg", class: 'user-image', id: :img_prev %>
+                  <%= image_tag "livehouse.jpg", class: 'community-image', id: :img_prev %>
                 <% end %>
               </div>
               <div class='center'>
                 <label>
-                  <p class='image-btn'>画像をアップロード</p>
+                  <p class='image-btn'>画像を選択</p>
                   <%= f.file_field :image, class: 'image-form', id: :user_img %>
                 </label>
               </div>

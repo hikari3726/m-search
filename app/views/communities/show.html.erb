@@ -18,19 +18,23 @@
             <% end %>
           </div>
           <div class="content-container">
-            <% @community.posts. each do |post| %>
-              <div class="post-screen bottom-border">
-                <%= link_to user_path(:id => post.user_id), class: 'user-name font-black' do %>
-                  <%= image_tag post.user.image.url, class: "user-image" %>
-                <% end %>
-                <div class="user-content inline">
-                  <%= link_to user_path(:id => post.user_id), class: 'user-name font-black' do %>
-                    <%= post.user.name %>
+            <% if @community.posts.present? %>
+              <% @community.posts. each do |post| %>
+                <div class="post-screen bottom-border">
+                  <%= link_to user_path(:id => post.user_id) do %>
+                    <%= image_tag post.user.image.url, class: "user-image" %>
                   <% end %>
-                  <p class="content new-line"><%= post.content %></p>
-                  <%= l post.created_at %>
+                  <div class="user-content inline">
+                    <%= link_to user_path(:id => post.user_id), class: 'user-name font-gray' do %>
+                      <%= post.user.name %>
+                    <% end %>
+                    <p class="content new-line"><%= post.content %></p>
+                    <%= l post.created_at %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
+            <% else %>
+              <h4 class="no-message center">メッセージはありません</h4>
             <% end %>
           </div>
         </div>
@@ -56,15 +60,15 @@
           <div class="member">
             <% @community.join_communities. first(3). each do |community| %>
               <div class ="bottom-border">
-                <%= link_to user_path(:id => community.user_id), class: 'user-name font-black'  do %>
+                <%= link_to user_path(:id => community.user_id), class: 'user-name'  do %>
                   <%= image_tag community.user.image.url, class: "join-user-image" %>
-                  <%= community.user.name %>
+                  <p class="font-gray inline"><%= community.user.name %></p>
                 <% end %>
               </div>
             <% end %>
             <div class="plus-member">
               <% if @community.join_communities.count > 3 %>
-                <%= link_to "さらに表示", community_join_communities_path(:community_id => params[:id]), class: 'btn center' %>
+                <%= link_to "さらに表示", community_join_communities_path(:community_id => params[:id]), class: 'btn font-gray center' %>
               <% end %>
             </div>
           </div>

@@ -84,6 +84,15 @@ body {
   margin-left: 20px;
 }
 
+.owner:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.no-message {
+  padding-top: 150px;
+}
+
 /*トップページ*/
 .top-wrapper {
   .background-image {
@@ -123,7 +132,6 @@ body {
 
 /*ユーザーページ*/
 .user-show-wrapper {
-  
   .show-container {
     margin: 50px 0px;
   }
@@ -147,11 +155,11 @@ body {
     padding: 10px;
     font-size: 18px;
     text-decoration: none;
-    color: #1B1B1B;
+    color: #818181;
   }
   
   .follow-member:hover {
-    color: #818181;
+    color: #1B1B1B;
     cursor: pointer;
     text-decoration: none;
   }
@@ -190,29 +198,26 @@ body {
     font-size: 18px;
   }
   
-  .font-black {
+  .font-gray:hover {
     color: black;
     text-decoration: none;
   }
   
-  .font-black:hover {
-    color: #818181;
-  }
 }
 
 /*マイページ編集*/
 .user-edit-wrapper {
-  height: 1300px;
   
   .edit-container {
-    margin-top: 50px;
-    height: 1200px;
+    margin: 50px 0px;
+    padding-bottom: 50px;
   }
   
   .user-image {
     width: 200px;
     height: 200px;
     object-fit: cover;
+    margin-bottom: 20px;
   }
 
   .form-container {
@@ -220,31 +225,6 @@ body {
     margin: 40px auto;
   }
   
-  /*画像アップロード*/  
-  .image-btn {
-    display: block;
-    background-color: white;
-    width: 180px;
-    height: 30px;
-    margin-top: 15px;
-    border: thin solid #BBBBBB;
-    border-radius: 5px;
-    padding-top: 5px;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-    font-weight: normal;
-  }
-
-  .image-btn:hover {
-    color: #818181;
-    background-color: white;
-    cursor: pointer;
-  }
-
-  .image-form {
-    display: none;
-  }
 }
 
 /*ログイン、サインイン*/
@@ -276,6 +256,38 @@ body {
     padding-bottom: 50px;
     margin: 100px 0px 50px 0px;
   }
+  
+    /*画像アップロード*/  
+  .image-btn {
+    display: block;
+    background-color: white;
+    width: 180px;
+    height: 30px;
+    margin-top: 15px;
+    border: thin solid #BBBBBB;
+    border-radius: 5px;
+    padding-top: 5px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-weight: normal;
+  }
+
+  .image-btn:hover {
+    color: #818181;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .image-form {
+    display: none;
+  }
+  
+  .user-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
 }
 
 .login-wrapper {
@@ -301,10 +313,16 @@ body {
     height: 60px;
   }
   
+  .font-gray:hover {
+    text-decoration: none;
+    color: black;
+  }
+  
   .mail-icon {
     width: 26px;
     height: auto;
   }
+  
 }
 
 /*グループ投稿欄*/
@@ -328,14 +346,13 @@ body {
   }
   
   .content-container {
-    margin: 20px;
-    padding: 20px;
+    margin-top: 30px;
     height: 500px;
     overflow: auto;
   }
   
   .post-screen {
-    margin: 10px 0;
+    margin: 0px 40px;
     display: flex;
     align-items: center;
   }
@@ -343,6 +360,11 @@ body {
   .user-name {
     font-size: 15px;
     margin: 0;
+  }
+  
+  .user-name:hover {
+    color: black;
+    text-decoration: none;
   }
   
   .user-image {
@@ -358,7 +380,7 @@ body {
   }
     
   .content {
-    font-size: 18px;
+    font-size: 15px;
     margin: 0;
   }
 }
@@ -369,8 +391,8 @@ body {
   padding: 20px;
   
   .show-image {
-    width: 100%;
-    height: 100%;
+    width: 230px;
+    height: 115px;
     object-fit: cover;
     margin-top: 20px;
   }
@@ -410,6 +432,18 @@ body {
     object-fit: cover;
     border-radius: 50%;
   }  
+  
+  .user-name:hover {
+    text-decoration: none;
+    .font-gray {
+      color: black;
+    }
+  }
+  
+  .font-gray:hover {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 /*グループ一覧*/
@@ -427,7 +461,7 @@ body {
   .search {
    border: thin solid #BBBBBB;
    height: 32px;
-   width: 450px;
+   width: 490px;
   }
   
   .btn-hover:hover {
@@ -435,9 +469,15 @@ body {
     background-color: white;
   }
   
+  .communities {
+    margin-top: 40px;
+    height: 450px;
+    overflow: auto;
+  }
+  
   .index {
     border-bottom: solid 1px #c0c0c0;
-    margin: 0 40px;
+    margin: 0px 40px;
     padding: 30px 0px;
     display: flex;
     align-items: center;
@@ -451,16 +491,11 @@ body {
   }
   
   .title-description {
-    display: inline-block;
     width: 60%;
   }
   
   .index-title {
     font-size: 18px;
-  }
-  
-  .member-count {
-    display: inline-block;
   }
   
   .new-btn {
@@ -480,7 +515,7 @@ body {
     padding-bottom: 50px;
   }
   
-  .user-image {
+  .community-image {
     width: 300px;
     height: 150px;
     object-fit: cover;
@@ -525,25 +560,33 @@ body {
   .user-container {
     width: 80%;
     margin: 20px auto;
+    padding: 0px 33px;
+    height: 500px;
+    overflow: auto;
   }
   
   .users {
-    width: 70px;
-    display: inline-block;
-    margin: 15px;
+    width: 90px;
+    margin: 10px;
   }
   
   .user-image {
-    margin: 0px;
-    width: 80px;
-    height: 80px;
+    margin-left: auto;
+    width: 90px;
+    height: 90px;
     object-fit: cover;
     border-radius: 50%;
   }
   
   .user-name {
     font-size: 18px;
-    margin: 5px 0px;
+  }
+  
+  .font-link:hover {
+    text-decoration: none;
+    .user-name {
+      color: black;
+    }
   }
 }
 
@@ -601,18 +644,62 @@ body {
   .no-follow {
     padding-top: 40px;
   }
+}
+
+/*グループ編集*/
+.community-edit-wrapper {
+  .new-container {
+    margin: 50px 0px;
+    padding-bottom: 30px;
+  }
+  
+  .community-image {
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .image-btn {
+    display: block;
+    background-color: white;
+    width: 180px;
+    height: 30px;
+    margin-top: 15px;
+    border: thin solid #BBBBBB;
+    border-radius: 5px;
+    padding-top: 5px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-weight: normal;
+  }
+  
+  .image-btn:hover {
+    color: #818181;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .image-form {
+    display: none;
+  }
   
 }
 
 /*DMページ*/
 .room-show-wrapper {
-  .chat {
-    .image {
-      margin: 10px;
-      width: 70px;
-      height: 70px;
-      object-fit: cover;
-      border-radius: 50%;
+  .font-black {
+    color: black;
+  }
+  
+  .user-name:hover {
+    text-decoration: none;
+    .font-black {
+      color: #818181;
+    }
+    
+    .font-gray {
+      color: black;
     }
   }
   
@@ -623,4 +710,26 @@ body {
    } 
 }
 
-
+/*DM一覧ページ*/
+.room-index-wrapper {
+  .user-message:hover {
+    text-decoration: none;
+    .font-gray {
+      color: black;
+    }
+  }
+  
+  .message-item {
+    margin: 0 80px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .new-line {
+    width: 450px;
+  }
+  
+  .font-gray {
+    margin: 0px;
+  }
+}

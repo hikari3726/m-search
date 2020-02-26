@@ -1,4 +1,4 @@
-<div class="room-index-wrapper">
+<div class="room-index-wrapper background-color">
   <div class="container">
     <div class="row">
       
@@ -7,21 +7,26 @@
       </div>
 
       <div class="col-md-8">
-        <div class="show-container">
-          <div class="show-container background-color">
-            <h2 class="text center">メッセージ一覧</h2>
-            <div class="chat content-container">
-              <% if @entry.present? %>
-                <% @entryuser.each do |u| %>
-                  <%= link_to "#", class:'user-message' do %>
-                    <%= image_tag u.user.image.url, class:'user-image' %>
-                    <%= u.user.name %>
-                  <% end %>
+        <div class="show-container white">
+          <h2 class="text center">メッセージ一覧</h2>
+          <div class="chat content-container">
+            <% if @entry.present? %>
+              <% @entryuser.each do |u| %>
+                <%= link_to room_path(id: u.room_id), class:'user-message' do %>
+                  <div class='message-item bottom-border'>
+                    <%= image_tag u.user.image.url, class:'user-image inline' %>
+                    <div class="inline">
+                      <p class="font-gray"><%= u.user.name %></p>
+                      <p class="new-line font-gray"><%= u.room.messages.order(created_at: :desc).take.try(:content) %></p>
+                      <p class="font-gray"><%= u.room.messages.order(created_at: :desc).take.try(:created_at).strftime("%m/%d %H:%M") %></p>
+                    </div>
+                  </div>
                 <% end %>
               <% end %>
-            </div>
+            <% else %>
+              <h4 class="no-message center">メッセージはありません</h4>
+            <% end %>
           </div>
-
         </div>
       </div>
       

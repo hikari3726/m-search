@@ -19,7 +19,7 @@ ja:
         image: 画像
         gender: 性別
         age: 年齢
-        birthplace: 出身地
+        prefecture: 出身地
         artist: 好きなアーティスト
         description: 自己紹介
         

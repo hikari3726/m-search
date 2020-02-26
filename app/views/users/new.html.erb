@@ -3,10 +3,25 @@
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
         <div class="new-container white">
-          <h2 class="text-80 center">新規登録</h2>
+          <h2 class="text center">新規登録</h2>
           <div class="new-form">
             <%= form_for @user do |f| %>
               <%= render 'layouts/error_messages', model: f.object %>
+              <div class="form-group">
+                <div class='center'>
+                  <% if @user.image? %>
+                    <%= image_tag @user.image.url, class: 'user-image', id: :img_prev %>
+                  <% else %>
+                    <%= image_tag "man.png", class: 'user-image', id: :img_prev %>
+                  <% end %>
+                </div>
+                <div class='center'>
+                  <label>
+                    <p class='image-btn'>画像を選択</p>
+                    <%= f.file_field :image, class: 'image-form', id: :user_img %>
+                  </label>
+                </div>
+              </div>
               <div class="form-group">
                 <%= f.label :name, class: 'btn-text' %>
                 <%= f.text_field :name, class: 'form-control' %>
