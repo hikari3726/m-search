@@ -22,8 +22,12 @@
               <% @community.posts. each do |post| %>
                 <div class="post-screen bottom-border">
                   <%= link_to user_path(:id => post.user_id) do %>
-                    <%= image_tag post.user.image.url, class: "user-image" %>
-                  <% end %>
+                    <% if post.user.image.present? %>
+                      <%= image_tag post.user.image.url, class: 'user-image' %>
+                    <% else %>
+                      <%= image_tag 'man.png', class: 'user-image' %>
+                    <% end %>  
+                 <% end %>
                   <div class="user-content inline">
                     <%= link_to user_path(:id => post.user_id), class: 'user-name font-gray' do %>
                       <%= post.user.name %>
@@ -61,7 +65,11 @@
             <% @community.join_communities. first(3). each do |community| %>
               <div class ="bottom-border">
                 <%= link_to user_path(:id => community.user_id), class: 'user-name'  do %>
-                  <%= image_tag community.user.image.url, class: "join-user-image" %>
+                  <% if community.user.image.present? %>
+                      <%= image_tag community.user.image.url, class: 'join-user-image' %>
+                    <% else %>
+                      <%= image_tag 'man.png', class: 'join-user-image' %>
+                    <% end %> 
                   <p class="font-gray inline"><%= community.user.name %></p>
                 <% end %>
               </div>

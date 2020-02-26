@@ -7,8 +7,10 @@
           
           <div class="self-introduction">
             <div class="center">
-              <% if @user.image != nil %>
+              <% if @user.image.present? %>
                 <%= image_tag @user.image.url, class: 'image' %>
+              <% else %>
+                <%= image_tag 'man.png', class: 'image' %>
               <% end %>  
             </div>
             

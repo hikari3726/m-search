@@ -9,13 +9,17 @@
         <div class="new-container white">
           <h2 class="text center">グループ編集</h2>
           <div class="new-form">
+            <div class="form-group">
+              <div class='center'>
+                <% if @community.image.present? %>
+                  <%= image_tag community.image.url, class: 'community-image' %>
+                <% else %>
+                  <%= image_tag 'livehouse.jpg', class: 'community-image' %>
+                <% end %>
+              </div>
+            </div>
             <%= form_for @community do |f| %>
               <%= render 'layouts/error_messages', model: f.object %>
-              <div class="form-group">
-                <div class='center'>
-                  <%= image_tag @community.image.url, class: 'community-image' %>
-                </div>
-              </div>
               <div class="form-group">
                 <%= f.label :title, class: 'btn-text' %>
                 <%= f.text_field :title, class: 'form-control' %> 

@@ -17,7 +17,11 @@
               <% @user.all_following.each do |user| %>
                 <div class="follow-users center">
                   <%= link_to user_path(:id => user.id), class: 'follow-link' do %>
-                    <%= image_tag user.image.url, class: "user-image" %>
+                    <% if user.image.present? %>
+                      <%= image_tag user.image.url, class: 'user-image center' %>
+                    <% else %>
+                      <%= image_tag 'man.png', class: 'user-image center' %>
+                    <% end %> 
                     <p class="user-name center font-gray"><%= user.name %></p>
                   <% end %>
                 </div>

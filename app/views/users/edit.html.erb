@@ -8,7 +8,11 @@
             <%= form_for @user do |f| %>
               <div class="form-container">
                 <div class="center">
-                  <%= image_tag @user.image.url, class: 'user-image' %>
+                  <% if @user.image.present? %>
+                    <%= image_tag @user.image.url, class: 'user-image' %>
+                  <% else %>
+                    <%= image_tag 'man.png', class: 'user-image' %>
+                  <% end %>  
                 </div>  
                 <div class="form-group">
                   <%= f.label :name, class: 'btn-text' %>

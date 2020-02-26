@@ -20,7 +20,11 @@
           <div class="communities">
             <% @communities. each do |community| %>
               <div class="index">
-                <%= image_tag community.image.url, class: 'index-image' %>
+                <% if community.image.present? %>
+                  <%= image_tag community.image.url, class: 'index-image' %>
+                <% else %>
+                  <%= image_tag 'livehouse.jpg', class: 'index-image' %>
+                <% end %>
                 <div class="title-description new-line inline">
                   <p class="index-title"><%= community.title %></p>
                   <p class="member-count inline">参加メンバー</p>

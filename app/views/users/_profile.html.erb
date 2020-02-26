@@ -1,7 +1,11 @@
 <div class="profile white">
   <div class = "mypage profile-item center">
     <%= link_to user_path(id: current_user.id), class: 'font-gray' do %>
-      <%= image_tag current_user.image.url, class: 'show-image inline' %>
+      <% if current_user.image.present? %>
+        <%= image_tag current_user.image.url, class: 'show-image inline' %>
+      <% else %>
+        <%= image_tag 'man.png', class: 'show-image inline' %>
+      <% end %>  
       <p class="inline"><%= current_user.name %></p>
     <% end %>
   </div>

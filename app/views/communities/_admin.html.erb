@@ -1,6 +1,10 @@
 <div class="admin-container">
   <div class="show-image-container center">
-    <%= image_tag community.image.url, class: 'show-image' %>
+    <% if community.image.present? %>
+      <%= image_tag community.image.url, class: 'show-image' %>
+    <% else %>
+      <%= image_tag 'livehouse.jpg', class: 'show-image' %>
+    <% end %>
   </div>
   <div class="community-description">
     <div class="center">

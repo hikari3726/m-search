@@ -12,7 +12,11 @@
             <% @join_communities. each do |community| %>
               <div class="users inline">
                 <%= link_to user_path(:id => community.user.id), class: 'font-link' do %>
-                  <%= image_tag community.user.image.url, class: "user-image center" %>
+                  <% if community.user.image.present? %>
+                    <%= image_tag community.user.image.url, class: 'user-image center' %>
+                  <% else %>
+                    <%= image_tag 'man.png', class: 'user-image center' %>
+                  <% end %> 
                   <p class="user-name center font-gray"><%= community.user.name %></p>
                 <% end %>
               </div>
