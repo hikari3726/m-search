@@ -16,7 +16,11 @@
                 <div class="chat-box">
                   <div class="chat-face post-screen">
                     <%= link_to user_path(:id => m.user.id), class: 'link-user' do %>
-                      <%= image_tag m.user.image.url, class: 'user-image' %>
+                      <% if current_user.image.present? %>
+                        <%= image_tag m.user.image.url, class: 'user-image' %>
+                      <% else %>
+                        <%= image_tag 'man.png', class: 'user-image' %>
+                      <% end %>  
                     <% end %>
                     <div class="inline user-content">
                       <%= link_to user_path(:id => m.user.id), class: 'font-gray user-name' do %>

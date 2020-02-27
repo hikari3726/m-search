@@ -14,11 +14,17 @@
               <% @entryuser.each do |u| %>
                 <%= link_to room_path(id: u.room_id), class:'user-message' do %>
                   <div class='message-item bottom-border'>
-                    <%= image_tag u.user.image.url, class:'user-image inline' %>
+                    <% if u.user.image.present? %>
+                      <%= image_tag u.user.image.url, class: 'user-image inline' %>
+                    <% else %>
+                      <%= image_tag 'man.png', class: 'user-image inline' %>
+                    <% end %> 
                     <div class="inline">
                       <p class="font-gray"><%= u.user.name %></p>
-                      <p class="new-line font-gray"><%= u.room.messages.order(created_at: :desc).take.try(:content) %></p>
-                      <p class="font-gray"><%= u.room.messages.order(created_at: :desc).take.try(:created_at).strftime("%m/%d %H:%M") %></p>
+                      <% if u.room.messages.present? %>
+                        <p class="new-line font-gray"><%= u.room.messages.order(created_at: :desc).take.try(:content) %></p>
+                        <p class="font-gray"><%= u.room.messages.order(created_at: :desc).take.try(:created_at).strftime("%m/%d %H:%M") %></p>
+                      <% end %>
                     </div>
                   </div>
                 <% end %>
