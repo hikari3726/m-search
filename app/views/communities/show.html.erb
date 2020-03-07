@@ -10,7 +10,9 @@
           <h2 class="text-title center new-line"><%= @community.title %></h2>
           <div class="post center">
             <%= form_for @post,:url => {controller: "posts", action: "create" } do |f| %>
-              <%= render 'layouts/error_messages', model: f.object %>
+              <% if flash[:danger].present? %>
+                <%= flash[:danger] %>
+              <% end %>
               <%= f.text_field :content, placeholder: 'メッセージを入れてください', class: 'form-text-field' %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
               <%= f.hidden_field :community_id, :value => @community.id %>

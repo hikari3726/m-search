@@ -10,8 +10,9 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to controller: 'communities', action: 'show', id: @post.community_id
     else
-      flash.now[:danger] = "投稿失敗しました"
-      redirect_to controller: 'communities', action: 'show', id: @post.community_id
+      
+      #redirect_to :back ,flash: {danger: "入力されていない項目があります"}
+      redirect_to controller: 'communities', action: 'show', id: @post.community_id, flash: {danger: "入力されていない項目があります"}
     end
   end
   
